@@ -1,0 +1,15 @@
+<entry-layout [hideLogo]="true">
+  <active-business
+    *ngIf="activeBusiness" businessInfo
+    [logo]="activeBusiness.logo"
+    [name]="activeBusiness.name"
+    [city]="activeBusiness.companyAddress.city"
+    [firstName]="activeBusiness.contactDetails.firstName"
+    [lastName]="activeBusiness.contactDetails.lastName">
+  </active-business>
+  <entry-login
+    [username]="email"
+    (onSuccessLogin)="onSuccessLogin()"
+    (onSecondFactorCode)="onSecondFactorCode()">
+  </entry-login>
+</entry-layout>

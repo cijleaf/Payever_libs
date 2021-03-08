@@ -1,0 +1,30 @@
+<div class="notifications-type-wrapper">
+  <mat-button-toggle-group [value]="activeNotificationView" class="mat-button-toggle-group-transparent">
+    <mat-button-toggle [ngStyle]="{'min-width': buttonSize + 'px'}" [value]="notificationsEnum.Todo" disableRipple="true">{{ 'info_boxes.notifications.header.todo' | translate }}</mat-button-toggle>
+    <!-- <mat-button-toggle [ngStyle]="{'min-width': buttonSize + 'px'}" [value]="notificationsEnum.Alerts" disableRipple="true">{{ 'info_boxes.notifications.header.alerts' | translate }}</mat-button-toggle> -->
+  </mat-button-toggle-group>
+
+  <button
+      mat-raised-button
+      class="mat-button-rounded mat-button-xs close-button"
+      color="muted-light"
+      (click)="close()">
+      <pe-progress-button-content
+        class="sidebar-close-button"
+        [spinnerStrokeWidth]="2"
+        [spinnerDiameter]="15">
+        <svg class="icon icon-8"><use xlink:href="#icon-close-12"></use></svg>
+      </pe-progress-button-content>
+    </button>
+</div>
+<div class="notifications-container scroll-container data-grid-scroll-container" #notificationsEl>
+  <notification-card *ngIf="!(notifications$ | async)?.length"
+  ></notification-card>
+  <notification-card *ngFor="let group of notifications$ | async"
+    [title]="group.title"
+    [iconSrc]="group.iconSrc"
+    [notifications]="group.notifications$ | async"
+    (open)="onOpenMessage($event)"
+    (close)="onCloseMessage($event)"
+  ></notification-card>
+</div>

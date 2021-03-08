@@ -1,0 +1,81 @@
+<pe-widget *ngIf="widget" [widget]="widget" [theme]="theme$ | async"></pe-widget>
+<!--TODO: Remove after approving WIDGET-1, COSF-343-->
+<!--<widget-card-->
+<!--  [title]="'widgets.tutorial.title' | translate"-->
+<!--  [iconSrc]="iconUrl | iconsPngUrl"-->
+<!--  (uninstall)="onUninstall()"-->
+<!--  [showInstallAppButton]="false"-->
+<!--  [hasExtendedContent]="true"-->
+<!--&gt;-->
+
+<!--  <mat-list class="mat-list-transparent mat-list-transparent-no-padding">-->
+<!--    <ng-container *ngFor="let tutorial of firstTutorials$ | async; last as isLast">-->
+<!--      <mat-list-item class="tutorial-item mat-list-item-no-padding-left mat-list-item-no-padding-right">-->
+<!--        <div class="mat-list-item-flex">-->
+<!--          <div class="mat-list-item-col">-->
+<!--            <svg class="icon icon-play-tutorial">-->
+<!--              <use xlink:href="#icon-video-camera-20"></use>-->
+<!--            </svg>-->
+<!--            <span-->
+<!--              class="tutorial-title" translate>-->
+<!--              {{'widgets.tutorial.type.' + tutorial.type}}-->
+<!--            </span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div *ngIf="tutorial.watched"-->
+<!--          class="text-right tutorial-watched">-->
+<!--          <svg class="icon icon-16">-->
+<!--            <use xlink:href="#icon-visibility-16"></use>-->
+<!--          </svg>-->
+<!--        </div>-->
+<!--        <div class="text-right">-->
+<!--          <button mat-raised-button-->
+<!--                  class="install-button dashboard-widget-button mat-button-rounded mat-button-xs"-->
+<!--                  color="muted-white-themed"-->
+<!--                  (click)="onWatchTutorial(tutorial)"-->
+<!--                  >-->
+<!--            <svg class="icon icon-8 watch-icon"><use xlink:href="#icon-tutorial-open-link"></use></svg>-->
+<!--            {{'widgets.tutorial.watch' | translate}}-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </mat-list-item>-->
+<!--      <mat-divider *ngIf="!isLast" class="mat-divider mat-divider-horizontal"></mat-divider>-->
+<!--    </ng-container>-->
+<!--  </mat-list>-->
+
+
+<!--  <mat-list extended-content class="mat-list-transparent mat-list-transparent-no-padding">-->
+<!--    <ng-container *ngFor="let tutorial of widgetTutorials$ | async; last as isLast">-->
+<!--      <mat-list-item class="tutorial-item mat-list-item-no-padding-left mat-list-item-no-padding-right">-->
+<!--        <div class="mat-list-item-flex">-->
+<!--          <div class="mat-list-item-col">-->
+<!--            <svg class="icon icon-play-tutorial">-->
+<!--              <use xlink:href="#icon-video-camera-20"></use>-->
+<!--            </svg>-->
+<!--            <span-->
+<!--              class="tutorial-title" translate>-->
+<!--              {{'widgets.tutorial.type.' + tutorial.type}}-->
+<!--            </span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div *ngIf="tutorial.watched"-->
+<!--          class="text-right tutorial-watched">-->
+<!--          <svg class="icon icon-16">-->
+<!--            <use xlink:href="#icon-visibility-16"></use>-->
+<!--          </svg>-->
+<!--        </div>-->
+<!--        <div class="text-right">-->
+<!--          <button mat-raised-button-->
+<!--                  class="install-button dashboard-widget-button mat-button-rounded mat-button-xs"-->
+<!--                  color="muted-white-themed"-->
+<!--                  (click)="onWatchTutorial(tutorial)"-->
+<!--                  >-->
+<!--            <svg class="icon icon-8 watch-icon"><use xlink:href="#icon-tutorial-open-link"></use></svg>-->
+<!--            {{'widgets.tutorial.watch' | translate}}-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </mat-list-item>-->
+<!--      <mat-divider *ngIf="!isLast" class="mat-divider mat-divider-horizontal"></mat-divider>-->
+<!--    </ng-container>-->
+<!--  </mat-list>-->
+<!--</widget-card>-->

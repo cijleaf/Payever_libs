@@ -1,0 +1,125 @@
+
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.widget-wrapper {
+  // background-color: $color-primary-8;
+  //background-color: $color-secondary-3;
+  backdrop-filter: blur(30px);
+  border-radius: 16px;
+  display: block;
+  margin-bottom: 1.35em;
+  position: relative;
+  z-index: 1;
+}
+
+@supports (backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px)) {
+  .widget-wrapper {
+    //background-color: $color-secondary-3;
+  }
+}
+
+.widget-card {
+  height: 100%;
+  display: flex;
+  padding: 15px 16px;
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.icon-search {
+  color: $color-secondary-3;
+}
+
+.search-text {
+  color: $color-secondary;
+  font-size: 17px;
+  vertical-align: -1px;
+  flex-grow: 1;
+  margin-left: 6px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $color-secondary-3;
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $color-secondary-3;
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $color-secondary-3;
+  text-transform: uppercase;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+.search-widget-buttons {
+  display: flex;
+  align-items: center;
+  min-width: 88px;
+  justify-content: space-between;
+}
+
+.search-widget-close {
+  padding: 0px;
+  height: 22px;
+  width: 22px;
+}
+
+.search-widget-icon {
+  display: flex;
+  align-items: center;
+}
+
+.theme-dark, .theme-default {
+  &.widget-wrapper {
+    background-image: linear-gradient(to bottom, #1e1e1e, #0f0f0f);
+  }
+}
+.theme-light {
+  &.widget-wrapper {
+    background-color: #f7f7f7;
+  }
+
+  .icon-search {
+    color: #000000;
+  }
+
+  .search-widget-button, .search-widget-close {
+    background-color: #1d1d20;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #000000;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #000000;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #000000;
+  }
+}
+.theme-transparent {
+  &.widget-wrapper {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}

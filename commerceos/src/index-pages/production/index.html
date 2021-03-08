@@ -1,0 +1,136 @@
+<!doctype html>
+<html class="notranslate" http-equiv="content-language">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="google" content="notranslate">
+  <meta name="robots" content="noindex, nofollow">
+  <title>payever</title>
+  <base href="/">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon-70.png">
+  <!-- Default font preload -->
+  <!-- the path should follow to the same as in ui-kit/scss/pe_fonts.scss -->
+  <!-- <link rel="preload" href="https://payever.azureedge.net/fonts/roboto/Roboto-Light.woff2" as="font" crossorigin type="font/woff2"> -->
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" as="font" crossorigin>
+
+  <style>
+    .pe-root-loader {
+      width: 26px;
+      height: 26px;
+      animation: pe-root-loader-spin 2s linear infinite;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    .pe-root-loader svg {
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .pe-root-loader circle {
+      animation-name: pe-root-loader-material-spinner-stroke-rotate-26;
+      stroke-dasharray: 50.2655px;
+      stroke-width: 7.69231%;
+      transition-property: stroke;
+      animation-duration: 4000ms;
+      animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+      animation-iteration-count: infinite;
+      fill: transparent;
+      transform-origin: center;
+      transition: stroke-dashoffset 225ms linear;
+      stroke: #fff;
+    }
+
+    @keyframes pe-root-loader-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pe-root-loader-material-spinner-stroke-rotate-26 {
+      0%      { stroke-dashoffset: 47.752208334564855;  transform: rotate(0); }
+      12.5%   { stroke-dashoffset: 10.053096491487338;    transform: rotate(0); }
+      12.5001%  { stroke-dashoffset: 10.053096491487338;    transform: rotateX(180deg) rotate(72.5deg); }
+      25%     { stroke-dashoffset: 47.752208334564855;  transform: rotateX(180deg) rotate(72.5deg); }
+
+      25.0001%   { stroke-dashoffset: 47.752208334564855;  transform: rotate(270deg); }
+      37.5%   { stroke-dashoffset: 10.053096491487338;    transform: rotate(270deg); }
+      37.5001%  { stroke-dashoffset: 10.053096491487338;    transform: rotateX(180deg) rotate(161.5deg); }
+      50%     { stroke-dashoffset: 47.752208334564855;  transform: rotateX(180deg) rotate(161.5deg); }
+
+      50.0001%  { stroke-dashoffset: 47.752208334564855;  transform: rotate(180deg); }
+      62.5%   { stroke-dashoffset: 10.053096491487338;    transform: rotate(180deg); }
+      62.5001%  { stroke-dashoffset: 10.053096491487338;    transform: rotateX(180deg) rotate(251.5deg); }
+      75%     { stroke-dashoffset: 47.752208334564855;  transform: rotateX(180deg) rotate(251.5deg); }
+
+      75.0001%  { stroke-dashoffset: 47.752208334564855;  transform: rotate(90deg); }
+      87.5%   { stroke-dashoffset: 10.053096491487338;    transform: rotate(90deg); }
+      87.5001%  { stroke-dashoffset: 10.053096491487338;    transform: rotateX(180deg) rotate(341.5deg); }
+      100%    { stroke-dashoffset: 47.752208334564855;  transform: rotateX(180deg) rotate(341.5deg); }
+    }
+  </style>
+</head>
+<body class="pe-bootstrap" style="background-color: #6f6f6f;">
+
+  <div id="pe-root-loader" class="pe-root-loader">
+    <svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false">
+      <circle cx="50%" cy="50%" r="8"></circle>
+    </svg>
+  </div>
+
+  <div id="os-background-wrap" class="platform-background-wrap" style="background-image: url(MICRO_URL_CUSTOM_CDN/images/commerceos-background-blurred.jpg);background-color: #6f6f6f;animation: initilize .2s both;"></div>
+  <script type="text/javascript">
+
+    var parts = String(window.location.pathname).split('/').filter(d => d !== '');
+    // TODO Remove copypaste
+    var ignore = ['personal', 'business'];
+    var isRegistration = (parts.length === 3 || (parts.length === 5 && parts[3] === 'app')) && parts[0] === 'entry' && parts[1] === 'registration';
+    var savedBlured = localStorage.getItem('pe-default-background-blurred');
+    if (isRegistration) {
+      var industry = ignore.indexOf(parts[2]) < 0  ? parts[2] : null;
+      if (industry) {
+        var backgroundUrl = 'MICRO_URL_CUSTOM_CDN/images/commerceos-industry-background-' + industry + '-blurred.jpg';
+        document.getElementById('os-background-wrap').style.backgroundImage = 'url('+ backgroundUrl + ')';
+      } else {
+        var backgroundUrl = 'MICRO_URL_CUSTOM_CDN/images/commerceos-background-blurred.jpg';
+        document.getElementById('os-background-wrap').style.backgroundImage = 'url('+ backgroundUrl + ')';
+      }
+    } else if (savedBlured) {
+      document.getElementById('os-background-wrap').style.backgroundImage = 'url(' + savedBlured + ')';
+    }
+  </script>
+
+  <div class="platform-background-overlay"></div>
+  <div id="os-background" class="platform-background" style="display: none;"></div>
+
+  <os-commerce id="os-app-main" class="pe-bootstrap app-main"></os-commerce>
+
+  <div class="mat-accordion">
+    <div id="mat-list-draggable" class="mat-list-transparent mat-list"></div>
+  </div>
+
+  <!-- Default BG images preload -->
+  <img src="MICRO_URL_CUSTOM_CDN/images/commerceos-background-blurred.jpg" style="display:none;"/>
+  <img src="MICRO_URL_CUSTOM_CDN/images/commerceos-background.jpg" style="display:none;" />
+
+  <script type="text/javascript" src="MICRO_URL_CUSTOM_CDN/js/pe-static.js"></script>
+  <script src="MICRO_URL_CUSTOM_CDN/js/polyfills-zonejs-es5.js" nomodule defer></script>
+  <script src="MICRO_URL_CUSTOM_CDN/js/polyfills-zonejs-es2015.js" type="module"></script>
+  <!-- <script type="text/javascript" src="MICRO_URL_CUSTOM_CDN/js/polyfills.js"></script> -->
+  <script>
+    // To have this url in evnvironments
+    window.CDN_URL="MICRO_URL_CUSTOM_CDN";
+    window.PE_HASH="[PE_HASH]";
+  </script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+</html>

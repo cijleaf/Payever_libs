@@ -1,0 +1,98 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+  transform: translate3d($x, $y, $z);
+}
+$header-height: $grid-unit-y * 2 + $padding-xs-vertical * 4;
+:host {
+  .root-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 0 8px;
+    @include payever_transition(left, $animation-duration-slide-in, $animation-effect-ease-out);
+    @include payever_transition(right, $animation-duration-slide-in, $animation-effect-ease-out);
+    transition-property: left, right, opacity;
+    &.sidebar-open {
+      opacity: 0.5
+    }
+  }
+  .root-bg-container {
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    @include translate3d(0, 0, 0);
+    @include payever_animation(initilize, $animation-duration-complex * 4, both);
+
+    &.hide-dashboard-bg {
+      @include payever_animation(close, $animation-duration-complex, both);
+      opacity: 0;
+    }
+
+    &::after {
+      content: '';
+      @include full_screen();
+    }
+  }
+}
+.progress-spinner-container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.pe-micro-container {
+  @include full_screen();
+
+  &.below-platform-header {
+    top: $platform-header-height;
+    transform: translateX(0);
+    @media(max-width: $viewport-breakpoint-sm-2 - 1) {
+      top: $platform-header-mobile-height;
+    }
+  }
+
+  &.below-platform-subheader {
+    top: $platform-header-height * 2;
+    @media(max-width: $viewport-breakpoint-sm-2 - 1) {
+      top: $platform-header-mobile-height * 2;
+    }
+  }
+
+  &.with-header-notification {
+    &.below-platform-header {
+      top: $platform-header-height + $platform-header-notification-height;
+      transform: translateX(0);
+      @media(max-width: $viewport-breakpoint-sm-2 - 1) {
+        top: $platform-header-mobile-height + $platform-header-notification-height;
+      }
+    }
+
+    &.below-platform-subheader {
+      top: $platform-header-height * 2 + $platform-header-notification-height;
+      transform: translateX(0);
+      @media(max-width: $viewport-breakpoint-sm-2 - 1) {
+        top: $platform-header-mobile-height * 2 + $platform-header-notification-height;
+      }
+    }
+  }
+
+  overflow: auto;
+  -ms-overflow-style: none; // hide scroll in IE/Edge but allow to scroll
+
+  /* remove scrollbar space */
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}

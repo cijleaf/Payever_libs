@@ -1,0 +1,27 @@
+<div class="edit-apps-container">
+  <div id="os-background-wrap"
+      class="platform-background-wrap edit-apps-bg"></div>
+  <div peScrollHide class="edit-apps-position-wrap">
+    <pe-info-box [blurred]="false"
+        [fixed]="false"
+        [withHeader]="false"
+        [withFooter]="false"
+        [notFullwidthOnMobile]="true"
+        [roundBorder]="true"
+        class="edit-apps">
+      <ng-container content>
+        <div class="buttons-wrapper">
+          <mat-button-toggle-group [value]="activeView" (change)="onToggle($event)" class="mat-button-toggle-group-transparent">
+            <mat-button-toggle [value]="editAppsViewEnum.apps" disableRipple="true">{{ 'edit_apps.switcher.apps' | translate }}</mat-button-toggle>
+            <mat-button-toggle [value]="editAppsViewEnum.widgets" disableRipple="true">{{ 'edit_apps.switcher.widgets' | translate }}</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <mat-list class="mat-list-transparent mat-list-transparent-no-padding">
+          <apps-list-wrapper [hidden]="activeView !== editAppsViewEnum.apps"></apps-list-wrapper>
+          <widgets-list [hidden]="activeView !== editAppsViewEnum.widgets"></widgets-list>
+        </mat-list>
+      </ng-container>
+    </pe-info-box>
+  </div>
+</div>

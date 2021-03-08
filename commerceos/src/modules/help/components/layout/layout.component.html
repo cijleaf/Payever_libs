@@ -1,0 +1,10 @@
+<div class="help-section">
+  <button *ngIf="!loading"
+          type="button"
+          class="btn btn-link btn-default back-btn"
+          (click)="navigateBack()">
+    <svg class="icon icon-48"><use xlink:href="#icon-x-oval-32"></use></svg>
+  </button>
+  <feedback *ngIf="!isHelpActive && !loading"></feedback>
+  <help *ngIf="isHelpActive && !loading"></help>
+</div>

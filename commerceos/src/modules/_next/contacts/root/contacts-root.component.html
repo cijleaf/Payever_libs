@@ -1,0 +1,10 @@
+<pe-new-platform-header *ngIf="!(peSimpleStepperService.isVisible$ | async)"></pe-new-platform-header>
+<div
+  class="builder-container"
+  [class.dashboard-container]="isDashboardRoute"
+  [class.below-welcome-stepper]="peSimpleStepperService.isVisible$ | async"
+>
+  <div class="dashboard-content dashboard-scroll-wrapper data-grid-scroll-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

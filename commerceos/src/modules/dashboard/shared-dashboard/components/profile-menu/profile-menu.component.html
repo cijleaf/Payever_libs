@@ -1,0 +1,120 @@
+<div class="logo-wrapper menu-item-white" data-pe-navbar-link="profile">
+  <img *ngIf="profileButtonImage"
+       class="logo dashboard-logo img-circle"
+       [src]="profileButtonImage | mediaUrl:'images'"
+  >
+  <svg *ngIf=" !profileButtonImage " class="icon icon-14"><use xlink:href="#icon-account-circle-24"></use></svg>
+</div>
+
+<span class="business-title menu-item-white">{{ profileButtonTitle }}</span>
+<button *ngIf="loggedIn"
+        mat-button
+        class="mat-button-no-padding"
+        data-pe-navbar-link="search"
+        matTooltip="{{'tooltips.search' | translate}}"
+        matTooltipClass="mat-tooltip-transparent-dark-xs"
+        (click)="onSearchClick()"
+>
+  <svg class="icon icon-14 menu-item-white"><use xlink:href="#icon-menu-search"></use></svg>
+</button>
+
+<button *ngIf="loggedIn"
+  mat-button class="mat-button-no-padding" (click)="onNotificationsClick()"
+  matTooltip="{{'tooltips.notifications' | translate}}" matTooltipClass="mat-tooltip-transparent-dark-xs">
+  <svg class="icon icon-14 menu-item-white"><use xlink:href="#icon-n-bell-32"></use></svg>
+</button>
+
+<button mat-button
+        class="mat-default dashboard-btn"
+        data-pe-navbar-menu="profile-menu"
+        [matMenuTriggerFor]="menu"
+        (mouseenter)="menuResubscription()"
+>
+  <svg class="icon icon-14 menu-item-white" [style.height.px]="14"><use xlink:href="#icon-hamburger-16"></use></svg>
+</button>
+
+<mat-menu [overlapTrigger]="false" #menu="matMenu" class="mat-menu-dark-blurry mat-menu-test fit-content">
+    <button *ngIf="loggedIn && (businessesCount > 1 || isPersonalAccountMode)"
+            mat-menu-item
+            class="business-menu-item"
+            data-pe-navbar-menu-item="switch-profile"
+            (click)="toggleRoutes()"
+    >
+      <div>
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-switch_profile"></use>
+        </svg>
+      </div>
+      <div class="business-menu-item" translate>dashboard.profile_menu.switch_profile</div>
+    </button>
+    <button *ngIf="loggedIn && !isPersonalAccountMode"
+            mat-menu-item
+            class="business-menu-item"
+            data-pe-navbar-menu-item="personal-info"
+            (click)="openPersonalProfile()"
+    >
+      <div>
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-commerceos-user-20"></use>
+        </svg>
+      </div>
+      <div class="business-menu-item" translate>dashboard.profile_menu.personal_info</div>
+    </button>
+    <button *ngIf="loggedIn"
+            mat-menu-item
+            class="business-menu-item"
+            data-pe-navbar-menu-item="add-business"
+            (click)="onAddBusinessClick()"
+    >
+      <div>
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-add-business"></use>
+        </svg>
+      </div>
+      <div class="business-menu-item" translate>dashboard.profile_menu.add_business</div>
+    </button>
+    <button mat-menu-item
+            data-pe-navbar-menu-item="logout"
+            class="business-menu-item"
+            (click)="onLogOut()"
+    >
+      <div>
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-log_out"></use>
+        </svg>
+      </div>
+      <div class="business-menu-item" translate>dashboard.profile_menu.log_out</div>
+    </button>
+    <a *ngIf="loggedIn"
+       mat-menu-item
+       class="business-menu-item"
+       data-pe-navbar-menu-item="contact"
+       [href]="'dashboard.profile_menu.contact_link' | translate"
+    >
+      <div>
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-contact"></use>
+        </svg>
+      </div>
+      <div class="business-menu-item" translate>dashboard.profile_menu.contact</div>
+    </a>
+    <a *ngIf="loggedIn"
+       mat-menu-item
+       class="business-menu-item"
+       data-pe-navbar-menu-item="feedback"
+       [href]="'dashboard.profile_menu.feedback_link' | translate"
+    >
+      <div>
+        <svg class="icon icon-20">
+          <use xlink:href="#icon-feedback"></use>
+        </svg>
+      </div>
+      <div class="business-menu-item" translate>dashboard.profile_menu.feedback</div>
+    </a>
+</mat-menu>
+
+
+<!--<mat-divider [vertical]="true" class="mat-divider-indented-small"></mat-divider>-->
+<!--<a mat-button target="_blank" href="https://getpayever.com/help/" class="question-help mat-button-no-padding">-->
+  <!--<svg  class="icon icon-12"><use xlink:href="#icon-help-question-white-16"></use></svg>-->
+<!--</a>-->

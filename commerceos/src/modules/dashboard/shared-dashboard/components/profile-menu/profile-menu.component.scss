@@ -1,0 +1,120 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  right: 20px;
+  height: 100%;
+  @include pe_flexbox;
+  @include pe_align-items(center);
+
+  &.fixed {
+    position: fixed;
+  }
+
+  .dashboard-logo {
+    background: $gray;
+    width: $grid-unit-x * 1.5;
+    overflow: hidden;
+    height: $grid-unit-x * 1.5;
+    object-fit: cover;
+  }
+  .mat-button {
+    height: $grid-unit-y * 2 + $padding-xs-vertical * 4;
+    padding: 0;
+    font-size: $font-size-small;
+    line-height: ceil(($grid-unit-y * 2 * 0.85));
+    color:  $color-secondary;
+    &:hover {
+      background-color: transparent;
+    }
+    .default-profile-icon {
+      margin-left: 1px;
+      margin-right: 10px;
+      margin-bottom: 1px;
+    }
+    .icon-arrow {
+      margin-left: 3px;
+    }
+  }
+}
+.dashboard-btn {
+  min-width: 20px !important;
+  margin-left: $margin-adjust * 1.5;
+}
+.menu-item-white {
+  @include pe_flexbox();
+  @include pe_align-items(center);
+  color:  white;
+  margin: 0 $margin-adjust * 1.5;
+  height: 100%;
+  &.logo-wrapper {
+    @media (min-width: $viewport-breakpoint-ipad) {
+      margin-right: 0;
+    }
+  }
+}
+.mat-divider-vertical {
+  height: $grid-unit-x + 4;
+  background-color:  $color-secondary;
+}
+.question-help {
+  color: $color-secondary-3;
+  margin-left: 4px;
+  margin-right: 1px;
+  ::ng-deep &:hover,
+  &:focus {
+    .mat-button-focus-overlay {
+      opacity: 0 !important;
+    }
+  }
+}
+.business-menu-item {
+  padding-left: $margin-adjust * 3;
+  line-height: 1.8em; // Safari 10 flexbox alig-item workaround
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.business-title {
+  display: inline-block;
+  font-size: $font-size-regular-2;
+  font-weight: 500;
+  max-width: $pe_hgrid_gutter * 5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 26px;
+}
+.layout-blur-middle-bg {
+  display: block;
+  .menu-bg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include screen-xs() {
+  :host {
+    right: $grid-unit-x;
+  }
+  .business-title {
+    display: none;
+  }
+  .mat-button-link {
+    min-width: 0;
+    .default-profile-icon {
+      margin: 0;
+    }
+  }
+
+  .mat-divider {
+    display: none;
+  }
+
+  .question-help {
+    display: none;
+  }
+
+  .icon-arrow {
+    display: none;
+  }
+}

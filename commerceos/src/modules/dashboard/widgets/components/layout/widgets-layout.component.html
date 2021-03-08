@@ -1,0 +1,49 @@
+
+<div class="widgets-dashboard-wrapper" [ngClass]="{ 'fade-in': isSafari }">
+  <search-widget></search-widget>
+
+  <ng-container *ngFor="let widget of widgets$ | async">
+
+    <ng-container [ngSwitch]="widget.appName">
+
+      <apps-widget *ngSwitchCase="WidgetTypeEnum.Apps" [widget]="widget"></apps-widget>
+
+      <transactions-widget *ngSwitchCase="WidgetTypeEnum.Transactions" [widget]="widget"></transactions-widget>
+
+      <store-widget *ngSwitchCase="WidgetTypeEnum.Shop" [widget]="widget"></store-widget>
+
+      <pos-widget *ngSwitchCase="WidgetTypeEnum.Pos" [widget]="widget"></pos-widget>
+
+      <checkout-widget *ngSwitchCase="WidgetTypeEnum.Checkout" [widget]="widget"></checkout-widget>
+
+      <marketing-widget *ngSwitchCase="WidgetTypeEnum.Marketing" [widget]="widget"></marketing-widget>
+
+      <studio-widget *ngSwitchCase="WidgetTypeEnum.Studio" [widget]="widget"></studio-widget>
+
+      <ads-widget *ngSwitchCase="WidgetTypeEnum.Ads" [widget]="widget"></ads-widget>
+
+      <contacts-widget *ngSwitchCase="WidgetTypeEnum.Contacts" [widget]="widget"></contacts-widget>
+
+      <products-widget *ngSwitchCase="WidgetTypeEnum.Products" [widget]="widget"></products-widget>
+
+      <connect-widget *ngSwitchCase="WidgetTypeEnum.Connect" [widget]="widget"></connect-widget>
+
+      <settings-widget *ngSwitchCase="WidgetTypeEnum.Settings" [widget]="widget"></settings-widget>
+
+      <tutorial-widget *ngSwitchCase="WidgetTypeEnum.Tutorial" [widget]="widget"></tutorial-widget>
+
+    </ng-container>
+  </ng-container>
+  <br><br><br>
+  <!--
+  <div class="edit-install-wrapper" *ngIf="showEdit">
+    <button class="edit-install"
+            (click)="openEditAppsBox()"
+            [class.mat-button-xl]="true"
+            color="dark"
+            mat-raised-button
+    >{{'edit_apps.enter_button' | translate}}
+    </button>
+  </div>
+  -->
+</div>

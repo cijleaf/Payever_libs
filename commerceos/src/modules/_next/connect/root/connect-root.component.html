@@ -1,0 +1,12 @@
+<pe-new-platform-header (resized)="onPlatformHeaderResized($event)" id="connect-header"
+  [class.b-dark]="this.theme === PeThemeEnum.DARK || this.theme === 'default'"
+  [class.b-light]="this.theme === PeThemeEnum.LIGHT" [class.b-transparent]="this.theme === PeThemeEnum.TRANSPARENT"
+  class="products-header"></pe-new-platform-header>
+
+<pe-simple-welcome-stepper (resized)="onWelcomeStepperResized($event)"></pe-simple-welcome-stepper>
+
+<div class="connect-app-content top-offset-fix data-grid-scroll-container"
+  [class.b-dark]="this.theme === PeThemeEnum.DARK || this.theme === 'default'"
+  [class.b-light]="this.theme === PeThemeEnum.LIGHT" [class.b-transparent]="this.theme === PeThemeEnum.TRANSPARENT">
+  <router-outlet></router-outlet>
+</div>

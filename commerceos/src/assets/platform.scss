@@ -1,0 +1,165 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+/**
+ * Global "OS" css for stylying loaders and backgrounds
+ * behind micros and monolith.
+ */
+
+$blurry_background_margin: 70px;
+$loaded_state_blur: 80px;
+$loading_state_blur: 30px;
+$os_transition_duration: 2 * $animation-duration-complex;
+
+body {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.mat-menu-panel {
+  opacity: 1 !important;
+  transform: scale(1, 1) !important;
+}
+.platform-background-wrap {
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  position: fixed;
+  left: 0;
+  top: -1px; // safari line
+  right: 0;
+  bottom: -1px;
+  z-index: -1;
+  @include payever_transition(all, $animation-duration-slide-out, $animation-effect-ease-in);
+  @include payever_transform_translate3d(0,0,0);
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}
+/*
+.pe-bootstrap video.platform-background-video {
+  &-desktop {
+    height: auto;
+    width: 100%;
+    @media (max-aspect-ratio: 1574/984) {
+      height: 100%;
+      width: auto;
+    }
+    display: none;
+    @media(max-width: $viewport-breakpoint-xs-2 - 1) {
+      display: none;
+    }
+    &-show {
+      display: inline-block;
+      @media(max-width: $viewport-breakpoint-xs-2 - 1) {
+        display: none;
+      }
+    }
+  }
+  &-mobile {
+    height: 100%;
+    display: none;
+    @media(min-width: $viewport-breakpoint-xs-2) {
+      display: none;
+    }
+    &-show {
+      display: inline-block;
+      @media(min-width: $viewport-breakpoint-xs-2) {
+        display: none;
+      }
+    }
+  }
+}
+*/
+.platform-background-overlay {
+  opacity: 0;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  left: 0;
+  top: -1px; // safari line
+  right: 0;
+  bottom: -1px;
+  z-index: -1;
+  @include payever_transition(all, $animation-duration-slide-out, $animation-effect-ease-in);
+  @include payever_transform_translate3d(0,0,0);
+}
+.platform-global-loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  @include payever_transform_translate(-50%,-50%);
+  @include payever_animation(osFadeOut, $animation-duration-complex, both);
+
+  &.in {
+    @include payever_animation(osFadeIn, $animation-duration-complex, both);
+  }
+}
+.app-main {
+  visibility: visible;
+
+  &.out {
+    visibility: hidden;
+    @include payever_transition(visibility, 0s, $animation-effect-ease-in, $os_transition_duration);
+    @include payever_animation(osFadeOut, $os_transition_duration, both);
+  }
+}
+
+@keyframes osFadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes osFadeOut {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes osScaleIn {
+  from {
+    @include payever_transform_scale(0.85, 0.85);
+  }
+  to {
+    @include payever_transform_scale(1, 1);
+  }
+}
+@keyframes osScaleOut {
+  from {
+    @include payever_transform_scale(1, 1);
+    opacity: 1;
+  }
+  to {
+    @include payever_transform_scale(0.85, 0.85);
+    opacity: 0;
+  }
+}
+
+.pe-bootstrap .dashboard-widget-button {
+  background: $color-dashboard-button1 !important;
+  &:hover {
+    background: $color-dashboard-button1 !important;
+    opacity: 0.7 !important;
+  }
+}

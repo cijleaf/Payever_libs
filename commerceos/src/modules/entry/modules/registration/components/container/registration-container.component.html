@@ -1,0 +1,16 @@
+<div class="registration-header">
+  <div class="registration-header-logo">
+    <span *ngIf="!getIndustryIcon()" class="registration-header-logo-payever">
+      <svg class="icon" [style.width.px]="entryLogo.width/1.1" [style.height.px]="entryLogo.height/1.1"><use [attr.xlink:href]="entryLogo.href"></use></svg>
+    </span>
+    <svg *ngIf="getIndustryIcon() as icon"
+         [style.width.px]="icon.width"
+         [style.height.px]="icon.height"
+         class="icon"><use [attr.xlink:href]="icon.icon"></use></svg>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <router-outlet></router-outlet>
+</div>
+

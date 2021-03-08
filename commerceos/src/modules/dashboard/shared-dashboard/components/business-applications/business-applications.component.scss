@@ -1,0 +1,308 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$paddings: 24px;
+$paddings-mobile: 16px;
+
+:host {
+  @include pe_inline-flex;
+  @include pe_flex-wrap(wrap);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  &:after {
+    content: "";
+    flex: auto;
+  }
+  &.app-card-content-bottom {
+    margin-bottom: 0;
+  }
+  .app-item {
+    margin-right: 0;
+
+    @media (min-width: $viewport-breakpoint-sm-1) {
+      margin: 0 27px;
+    }
+
+    &.full-page {
+      .hover-wrapper {
+        width: 112px;
+
+        .icon {
+          width: 65px;
+          height: 65px;
+          left: 23.5px;
+          top: 23.5px;
+        }
+      }
+      .title {
+        font-size: 16.5px;
+        font-weight: 500;
+      }
+      &.fake {
+        width: 112px;
+        height: 0;
+        visibility: hidden;
+      }
+
+      @media (max-width: $viewport-breakpoint-sm-2) {
+        .hover-wrapper, &.fake {
+          width: 78px;
+
+          .icon {
+            width: 46px;
+            height: 46px;
+            left: 16px;
+            top: 16px;
+          }
+        }
+        .title {
+          font-size: 16px;
+        }
+      }
+
+      &.theme-light .hover-wrapper, &.theme-dark .hover-wrapper {
+        background-image: linear-gradient(to bottom, #404040, #000000);
+      }
+      &.theme-transparent .hover-wrapper {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &:nth-child(5n):not(.full-page) {
+      margin-right: 0px;
+    }
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    //margin-bottom: $paddings - 2;
+    padding: $paddings - 2 0;
+   // @include last-row-flexbox(6, 16.6%);
+    @include pe_flexbox;
+    @include pe_align-items(center);
+    @include pe_flex-direction(column);
+
+    &.compact {
+      padding: 0 0 $paddings/2;
+      .hover-wrapper {
+        background-color: transparent;
+      }
+      span {
+        margin-top: 0;
+      }
+    }
+
+    &.extended-widget-section.compact {
+      padding: 0;
+      .hover-wrapper {
+        background-color: transparent;
+      }
+      span {
+        margin-top: 0;
+      }
+    }
+
+    .with-filter {
+      filter: $brightness-filter;
+    }
+
+    .icon-prepend {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      //height: 50%;
+      //width: 50%;
+      background-size: 100%;
+    }
+
+    .icon-prepend-not-widget {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      //height: 50%;
+      //width: 50%;
+    }
+
+    span {
+      display: block;
+      font-size: $font-size-micro-1;
+      margin-top: 8px;
+      font-weight: $font-weight-regular;
+      line-height: normal;
+      color: $color-secondary;
+    }
+
+    &-uninstalled-title {
+      @include pe_flexbox;
+    }
+  }
+
+  .hover-wrapper {
+    width: 50%;
+    min-width: 58px;
+    background-color: $color-secondary-2;
+    position: relative;
+    border-radius: $border-radius-base * 4;
+    @include pe_flexbox;
+    @include pe_align-items(center);
+    @include pe_justify-content(center);
+    @include pe_flex-direction(column);
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 100%;  /* ratio of 1:1 */
+    }
+
+    .loader-container {
+      position: absolute;
+      top: unset;
+      left: unset;
+      right: unset;
+      bottom: unset;
+      width: 100%;
+      height: 100%;
+      background: none;
+      color: #f7f7f7;
+
+      .spinner-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include payever_transform_translate(-50%, -50%);
+      }
+    }
+
+    &:hover,
+    &-loading {
+      cursor: pointer;
+      background-color: $color-secondary-1;
+
+      .loader-container {
+        background: transparent;
+        border-radius: $border-radius-base * 2;
+      }
+    }
+  }
+
+  .app-title {
+    max-width: 58px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $font-size-micro-3 + 1px;
+      font-weight: $font-weight-regular;
+      line-height: 1;
+      color: $color-secondary;
+      padding-top: 6px;
+      margin-left: -10px;
+      margin-right: -10px;
+
+      .not-set-up {
+        background: $color-blue;
+        border-radius: 50%;
+        width: 7px;
+        height: 7px;
+        margin-right: 6px;
+        margin-top: 0;
+      }
+
+      .not-added {
+        background: $color-dark-red;
+        border-radius: 50%;
+        width: 7px;
+        height: 7px;
+        margin-right: 6px;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .img-circle {
+    background-color: rgba(255, 255, 255, 0.2);
+    @include pe_inline-flex;
+    @include pe_align-items(center);
+    @include pe_justify-content(center);
+    margin: 7px $margin_adjust 0 0;
+  }
+
+  .icon-install-app {
+    color: $color-secondary-0;
+  }
+}
+
+@media (max-width: $viewport-breakpoint-ipad - 1) {
+  .img-circle {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media (max-height: 699px) {
+  :host {
+    .app-item {
+      margin-bottom: 15px;
+      padding: 5px 0;
+
+      &.compact {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+@media (max-width: $viewport-breakpoint-xs-2 - 1) {
+  /*  :host {
+    .app-item {
+      .hover-wrapper {
+        width: 64px;
+      }
+    }
+  } */
+}
+@media (max-width: $viewport-breakpoint-sm-1 - 1) {
+  :host {
+    .app-item {
+      margin-bottom: $paddings-mobile;
+      @include last-row-flexbox(4, 25%);
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+}
+@media (max-width: 1141px) and (min-width: $viewport-breakpoint-sm-3) {
+  /*  &:host {
+    .hover-wrapper {
+      width: 84px;
+    }
+  } */
+}
+
+@mixin last-row-flexbox($num-columns, $width-items) {
+  $filled-space: $width-items * $num-columns;
+  $margin: calc((100% - #{$filled-space}) / (#{$num-columns} - 1));
+  $num-cols-1 : $num-columns - 1;
+  &:nth-child(#{$num-columns}n+1):nth-last-child(-n+#{$num-cols-1}) ~ & {
+    margin-left: $margin;
+  }
+  @for $i from 1 through $num-columns - 2 {
+    $index: $num-columns - $i;
+    &:nth-child(#{$num-columns}n+#{$index}):last-child {
+      margin-right: auto;
+    }
+  }
+}

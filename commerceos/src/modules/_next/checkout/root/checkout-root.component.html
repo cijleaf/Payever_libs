@@ -1,0 +1,17 @@
+<div
+  class="checkout-app-container"
+  [class.checkout-dark-theme]="theme === PeThemeEnum.DARK || theme === PeThemeEnum.DEFAULT"
+  [class.checkout-light-theme]="theme === PeThemeEnum.LIGHT"
+  [class.checkout-transparent-theme]="theme === PeThemeEnum.TRANSPARENT">
+  <pe-new-platform-header
+    (resized)="onPlatformHeaderResized($event)"
+    class="checkout-header"
+    [class.no-z-index]="hideHeader">
+  </pe-new-platform-header>
+
+  <pe-simple-welcome-stepper (resized)="onWelcomeStepperResized($event)"></pe-simple-welcome-stepper>
+
+  <div class="checkout-app-content data-grid-scroll-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

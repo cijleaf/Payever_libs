@@ -1,0 +1,67 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import url('../../../../../node_modules/normalize.css/normalize.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$stepper-height: 65px;
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+os-commerce .root-container {
+  padding: 0 !important;
+}
+
+cos-next-root {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  background: $color-background;
+
+  #pos-header {
+    padding: 0 20px;
+    background: #111;
+
+    .header-container {
+      padding: 0;
+    }
+
+    .main-item-button {
+      padding-right: .8em;
+    }
+
+    .section-left {
+      height: 26px;
+      
+      .section-button {
+        padding: 0 .8em 0 .8em;
+
+        &.active-button {
+          background-color: #ffffff33!important;
+        }
+      }
+    }
+  }
+}
+
+.builder-container {
+  height: calc(100% - 26px);
+
+  &.shop-dashboard-container {
+    height: calc(100% - 10px);
+  }
+
+  &.below-welcome-stepper {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - #{$stepper-height});
+    top: $stepper-height;
+    transform: translateX(0);
+    bottom: 0;
+  }
+}

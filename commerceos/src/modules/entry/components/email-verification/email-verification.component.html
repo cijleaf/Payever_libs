@@ -1,0 +1,18 @@
+<entry-layout [hideLogo]="false">
+  <div class="text-center dark">
+    <br><br>
+    <svg class="icon" [class.icon-32]="isMobile$ | async" [class.icon-48]="!(isMobile$ | async)"><use [attr.xlink:href]="'#' + (errors ? 'icon-alert-24' : 'icon-check2-16')"></use></svg>
+    <div class="heading-2">{{ errors ? ('password.confirmation.error' | translate) : ('password.confirmation.success' | translate) }}</div>
+    <p class="descriptions">{{ 'password.confirmation.message' | translate }}</p>
+    <br>
+    <br>
+    <div class="buttons">
+      <button (click)="navigateToEntry()"
+              mat-button
+              type="button"
+              class="mat-button-link mat-button-no-padding back-button"
+              [routerLink]="['/entry']"
+              translate>{{ 'password.confirmation.back' | translate }}</button>
+    </div>
+  </div>
+</entry-layout>

@@ -1,0 +1,27 @@
+<div class="feedback-area" [hidden]="loading">
+  <h2 class="text-center feedback-heading" translate>dashboard.feedback_area.heading</h2>
+  <h3 *ngIf="responseText" class="text-center feedback-response">{{ responseText }}</h3>
+  <div *ngIf="!responseText" class="feedback-input-container">
+    <pe-feedback [value] = "feedback"
+                 [placeholderText] = "'dashboard.feedback_area.placeholder' | translate"
+                 (feedbackValueChange) = "handleFeedbackValue($event)">
+    </pe-feedback>
+    <div class="feedback-categories">
+      <p *ngFor="let category of feedbackCategories"
+         class="text-center category"
+         [class.active]="currentCategory === category"
+         (click)="changeCategory(category)"
+         [innerHtml]="'dashboard.feedback_area.feedback_categories.' + category | translate">sdf</p>
+    </div>
+  </div>
+  <div *ngIf="!responseText" class="submit-container">
+    <button type="button"
+            (click)="sendFeedback()"
+            class="btn btn-lg btn-primary btn-vmargin submit-btn">
+      <p class="btn-text" translate>dashboard.feedback_area.send_feedback</p>
+    </button>
+    <a href="mailto:support@getpayever.com" class="btn btn-lg btn-link btn-vmargin contact-btn">
+      <p class="btn-text" translate>dashboard.feedback_area.contact_support</p>
+    </a>
+  </div>
+</div>

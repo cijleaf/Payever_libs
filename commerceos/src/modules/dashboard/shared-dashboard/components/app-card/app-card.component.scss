@@ -1,0 +1,149 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+$paddings: 24px;
+$paddings-mobile: 16px;
+
+// these styles to ad scrolling to apps box
+:host {
+  $margin-top: 87px;
+  display: block;
+
+  .app-wrapper {
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
+    & {
+      -ms-overflow-style: none;
+    }
+  }
+}
+:host {
+  .app-card {
+    background: transparent !important;
+    z-index: 1;
+    box-shadow: none;
+    border-radius: $border-radius-base * 4;
+    @include payever_transition($property: max-height, $duration: 0.45s, $effect: ease-out);
+    padding: 0;
+
+    &-header {
+
+      &-title {
+        display: flex;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: normal; // 500 - is not bold on Windows
+        padding-bottom: $paddings - 2px;
+        padding-left: $paddings;
+        line-height: normal;
+      }
+
+      &-info {
+        padding: $paddings;
+
+        .app-business-info {
+          @include pe_flexbox();
+          @include pe_align-items(center);
+        }
+        .app-business-info-component {
+          color: #fff;
+        }
+
+        .app-business-edit {
+          margin-left: auto;
+        }
+      }
+
+      &.after-divider {
+        padding-top: 10px;
+      }
+    }
+
+    .mat-divider-horizontal {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .layout-blur-middle-bg {
+      display: block;
+      .dashboard-bg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-position-y: 0;
+        background-position-x: center;
+        background-attachment: fixed;
+      }
+    }
+  }
+
+  .edit-install {
+    padding: 0;
+    width: $pe_vgrid_height * 5;
+    background-color: $color-primary-3;
+    &:hover {
+      background-color: $color-primary-2;
+    }
+    &-wrapper {
+      width: $pe_vgrid_height * 4;
+      margin: $margin-adjust*6 auto;
+    }
+  }
+  .edit-install.mat-raised-button > span {
+    flex-direction: column;
+  }
+}
+
+//@media (min-width: $viewport-breakpoint-ipad - 1) {
+//  .app-wrapper {
+//    width: 750px;
+//  }
+//}
+@media (max-height: 720px) and (min-width: $viewport-breakpoint-ipad -1) {
+  .app-wrapper {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      transform: translateX(0);
+      left: auto;
+    }
+  }
+}
+@media (max-width: $viewport-breakpoint-sm-3) {
+
+  .app-wrapper {
+    position: relative;
+    width: 100%;
+
+    .app-card {
+      width: 100%;
+
+      .app-card-header-title {
+        font-size: 13px;
+      }
+    }
+  }
+}
+@media (max-width: $viewport-breakpoint-xs-1) {
+  :host {
+    .edit-install-wrapper {
+      margin: 6px auto;
+    }
+  }
+}
+@media (max-width: $viewport-breakpoint-sm-1 - 1) {
+  .app-wrapper {
+    .app-card {
+      .app-card-header-info {
+        padding: $paddings-mobile;
+      }
+
+      .app-card-header-title {
+        padding-bottom: $paddings-mobile;
+        padding-left: $paddings-mobile;
+      }
+    }
+  }
+}

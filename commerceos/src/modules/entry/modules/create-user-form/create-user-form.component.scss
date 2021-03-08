@@ -1,0 +1,23 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.pe-recaptcha-wrap-wrap {
+  background: #222; // Same as we have for dark recaptcha theme
+  opacity: 0.7;
+  text-align: center;
+
+  .pe-recaptcha-wrap {
+    margin-bottom: -4px;
+    display: inline-block;
+
+    overflow: hidden;
+    position: relative;
+    width: 298px;
+    height: 72px;
+    pe-recaptcha {
+      top: -2px;
+      left: -2px;
+      position: absolute;
+      right: 0;
+    }
+  }
+}

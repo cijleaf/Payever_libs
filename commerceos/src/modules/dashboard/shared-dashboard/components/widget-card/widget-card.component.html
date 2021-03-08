@@ -1,0 +1,97 @@
+<div class="widget-wrapper">
+  <mat-card class="widget-card background-blur" [class.todos-shown]="showTodos">
+    <div *ngIf="showInstallAppButton && !setupCompleted" class="widget-card-install-app">
+      <div *ngIf="installIconSrc" class="widget-card-install-app-icon"
+        [style.background-image]="'url(' + installIconSrc + ')' | safeStyle"></div>
+      <div class="widget-card-install-app-title">{{title}}</div>
+      <div class="widget-card-install-app-text" [innerHtml]="installAppButtonText"></div>
+      <button mat-raised-button class="mat-button-rect-md"
+        [class.install-app-button]="!appInstalled"
+        [class.continue-app-button]="appInstalled" color="muted-transparent-themed" type="button"
+        (click)="onInstallAppClick()">
+        <pe-progress-button-content [loading]="showInstallAppButtonSpinner$ | async">{{
+          !appInstalled ? ('widgets.actions.get-started' | translate) : ('widgets.actions.continue-setup' | translate)
+          }}</pe-progress-button-content>
+      </button>
+      <a *ngIf="!appInstalled" [href]="learMoreUrl || '#'" mat-raised-button
+        class="learn-more-button mat-button-rect-md" color="muted-transparent-themed" target="_blank">
+        {{ 'widgets.actions.learn-more' | translate }}
+      </a>
+    </div>
+
+    <div *ngIf="!showInstallAppButton || setupCompleted" class="widget-card-paddings">
+      <div class="widget-card-header">
+        <div class="widget-card-header-container">
+          <div *ngIf="iconSrc" class="widget-card-header-icon"
+            [style.background-image]="'url(' + iconSrc + ')' | safeStyle"></div>
+          <span class="widget-card-header-title">{{title}}</span>
+        </div>
+
+        <div class="widget-card-header-buttons" >
+          <button *ngIf="clickable" mat-raised-button class="open-button mat-button-rounded mat-button-xs"
+            color="muted-white-themed" (click)="onClick.emit()">
+            <pe-progress-button-content [spinnerStrokeWidth]="2" [spinnerDiameter]="15" [loading]="showButtonSpinner">
+              {{ editButton ? ('widgets.actions.edit' | translate) : ('widgets.actions.open' | translate) }}
+            </pe-progress-button-content>
+          </button>
+          <div *ngIf="clickable && (notificationsCount || showTodosButton)" class="notification-count-wrapper mat-button-rounded">
+            <span *ngIf="notificationsCount" class="notification-count">{{notificationsCount}}</span>
+            <button *ngIf="notificationsCount || showTodosButton" mat-raised-button class="widget-card-plus-button mat-button-rounded mat-button-xs"
+              type="button" color="muted-white-themed" (click)="onShowTodoClick()">
+              <ng-container >
+                <!-- &#43; -->
+                <svg class="icon icon-8" [ngClass]="{'spin': showTodos}"><use xlink:href="#icon-plus-8"></use></svg>
+              </ng-container>
+            </button>
+          </div>
+
+          <div *ngIf="hasExtendedContent" class="notification-count-wrapper mat-button-rounded">
+            <button mat-raised-button class="widget-card-plus-button mat-button-rounded mat-button-xs"
+                    type="button" color="muted-white-themed" (click)="showExtendedContent = !showExtendedContent">
+              <ng-container >
+                <!-- &#43; -->
+                <svg class="icon icon-8" [ngClass]="{'spin': showExtendedContent}"><use xlink:href="#icon-plus-8"></use></svg>
+              </ng-container>
+            </button>
+          </div>
+
+          <button *ngIf="closable" mat-button class="widget-card-header-more dashboard-widget-button mat-button-no-padding mat-button-xs"
+            (click)="onClose($event)">
+            {{ 'widgets.actions.close' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <div class="widget-card-content">
+        <!-- Widget spinner -->
+        <div class="widget-spinner-container" *ngIf="showSpinner">
+          <mat-spinner [strokeWidth]="2" [diameter]="26"></mat-spinner>
+        </div>
+
+        <!-- Widget content -->
+        <div class="widget-card-content-body" [class.spinner-visible]="showSpinner">
+          <div class="widget-card-content-body-content" >
+            <ng-content></ng-content>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="widget-notifications-container" [ngClass]="{'hidden-part': !showTodos}">
+      <widget-notifications [appCode]="appCode" (notificationCountChange)="onNotificationCountChange($event)"></widget-notifications>
+    </div>
+
+    <div class="widget-extended-content-container widget-card-paddings" [ngClass]="{'hidden-part': !showExtendedContent}">
+      <div class="widget-extended-content-container-inner">
+        <ng-content select="[extended-content]"></ng-content>
+      </div>
+    </div>
+    <!--
+    <div *ngIf="more" class="widget-card-content-more" [class.widget-opened]="opened">
+      <div class="widget-card-paddings">
+        <ng-content select="[more]"></ng-content>
+      </div>
+    </div>
+    -->
+  </mat-card>
+</div>

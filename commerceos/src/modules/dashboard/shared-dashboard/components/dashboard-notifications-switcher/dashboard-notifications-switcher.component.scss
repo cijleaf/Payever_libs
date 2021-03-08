@@ -1,0 +1,41 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  display: block;
+  text-align: center;
+
+  .mat-button-toggle-group {
+    @include payever_animation(osFadeIn, $animation-duration-complex, both);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: $border-radius-base * 4;
+    .mat-button-toggle {
+      color: $color-secondary;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-micro-2;
+      min-width: $grid-unit-x * 8 + 5;
+      & + .mat-button-toggle {
+        margin-left: 0;
+      }
+
+      &:not(.mat-button-toggle-checked) {
+        background-color: $color-secondary-2;
+      }
+    }
+  }
+  @keyframes osFadeIn {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.2;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

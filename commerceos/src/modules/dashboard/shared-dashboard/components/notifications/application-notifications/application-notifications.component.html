@@ -1,0 +1,9 @@
+<notification-card *ngIf="!(notifications$ | async)?.length"
+></notification-card>
+<notification-card *ngFor="let group of notifications$ | async"
+  [title]="group.title"
+  [iconSrc]="group.iconSrc"
+  [notifications]="group.notifications$ | async"
+  (open)="onOpenMessage($event)"
+  (close)="onCloseMessage($event)"
+></notification-card>

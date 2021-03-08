@@ -1,0 +1,51 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  .mat-list-item {
+    padding: 0 8px;
+    @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+      padding: 0;
+    }
+
+    &.app-item {
+      .text-right {
+        & > button {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .mat-list-item-col {
+    @include pe_flexbox();
+    padding: 14px 0 !important;
+  }
+
+  .app-title {
+    font-size: $font-size-regular-2;
+    font-weight: $font-weight-regular;
+    margin-left: 10px;
+    color: $color-secondary-0;
+  }
+
+  .mat-list-transparent-install {
+    width: $pe_vgrid_height * 7;
+  }
+
+  .icon-prepend {
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 20px;
+    width: 20px;
+    background-size: 20px 20px;
+    display: inline-block;
+  }
+
+  .edit-apps-install,
+  .edit-apps-uninstall {
+    min-width: 77px;
+  }
+
+}
+

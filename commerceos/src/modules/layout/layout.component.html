@@ -1,0 +1,55 @@
+<div class="background" #background></div>
+
+<div class="entry-layout commerceos-info-box-wrap" *ngIf="inited">
+  <pe-info-box [backdropFilterBlur]="true"
+               [fixed]="!(isMobile$ | async)"
+               [withPadding]="true"
+               [withHeader]="false"
+               [withFooter]="false"
+               [noBackgroundColor]="true">
+    <ng-container content>
+      <div class="logo-wrapper" *ngIf="!hideLogo">
+        <span class="logo-header" [style.height]="'inherit'">
+          <svg class="icon" [style.width.px]="entryLogo.width" [style.height.px]="entryLogo.height"><use [attr.xlink:href]="entryLogo.href"></use></svg>
+        </span>
+      </div>
+      <ng-content select="[businessInfo]"></ng-content>
+      <router-outlet></router-outlet>
+      <ng-content></ng-content>
+      <div class="entry-layout-bottom" *ngIf="showRegistrationButton || showSwitchAccountButton">
+        <div class="entry-text">
+          <ng-container *ngIf="showRegistrationButton">
+            <span *ngIf="showLoginText">{{ 'login.dont_have_account' | translate }}</span>
+            <button mat-button
+              type="button"
+              class="mat-button-link mat-button-no-padding"
+              (click)="onEntryChange()"
+              [innerHtml]="switchEntryButton"
+            ></button>
+          </ng-container>
+          <ng-container *ngIf="showSwitchAccountButton">
+            <button mat-button
+              type="button"
+              class="mat-button-link mat-button-no-padding"
+              (click)="onEntryChange()"
+              [innerHtml]="switchEntryButton"
+            ></button>
+          </ng-container>
+        </div>
+        <!-- <div class="entry-layout-social">
+          <div class="entry-layout-social-label"> {{ switchSocialLabel }}</div>
+          <svg class="icon icon-32"><use xlink:href="#icon-facebook-2-32"></use></svg>
+          <svg class="icon icon-32"><use xlink:href="#icon-google-b-24"></use></svg>
+        </div> -->
+      </div>
+    </ng-container>
+  </pe-info-box>
+  <pe-locales-switcher *ngIf="!hideLanguageSwitcher"
+    class="lang-switcher"
+    [reloadPageOnSwitch]="false"
+    [dark]="true"
+    [allowedLocales]="allowedLocales"
+    [class.entry-layout-register]="isEntryLayoutRegisterClass"
+    (localeChanged)="onLocaleChanged()">
+  </pe-locales-switcher>
+</div>

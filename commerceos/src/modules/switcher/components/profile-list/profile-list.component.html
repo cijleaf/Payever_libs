@@ -1,0 +1,16 @@
+<div [style.background-image]="backgroundUrl" class="profile-list-background">
+  <pe-profile-switcher *ngIf="!isLoading"
+    [list]="businessesList$ | async"
+    [listTitle]="'switcher.further_businesses' | translate"
+    [personalProfileCardConfig]="false"
+    [profileCardConfig]="profileCardConfig$ | async"
+    [showTopSwitcher]="true"
+    [showBusinessCardLoader]="showBusinessLoader$ | async"
+    [listItemWithLoader]="businessWithLoader"
+    [showPersonalCardLoader]="showPersonalLoader"
+    [multiLineItemsTitle]="true"
+    (onProfileCardClick)="onProfileCardClick()"
+    (openPersonalProfile)="openPersonalProfile()"
+    (onProfileFromListClick)="onProfileFromListClick($event)"
+  ></pe-profile-switcher>
+</div>

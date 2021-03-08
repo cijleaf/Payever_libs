@@ -1,0 +1,8 @@
+<div class="statistics-root" [ngClass]="theme" >
+  <pe-new-platform-header
+    *ngIf="!(peSimpleStepperService.isVisible$ | async)"
+  ></pe-new-platform-header>
+  <div class="statistics-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

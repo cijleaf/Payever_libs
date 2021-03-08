@@ -1,0 +1,44 @@
+<div class="registration-header-title" translate>registration.container.payever_personal</div>
+
+<entry-error [errorText]="errorMessage"></entry-error>
+
+<entry-create-user-form class="personal-business"
+  [errors]="errorBag$ | async"
+  [isCaptcha]="isCaptcha"
+  [isLoading]="isLoading"
+  [prefilled]="false"
+  (submitClicked)="onFormDataReceive($event)"
+  (formDataEmitter)="onFormDataReceive($event, false)"
+></entry-create-user-form>
+
+<div class="features">
+  <div class="features__lines">
+    <p>
+      <svg class="icon icon-16"><use xlink:href="#icon-commerceos-registration-features-get-started"></use></svg>
+      <span translate>registration.container.features.get_started</span>
+    </p>
+    <p>
+      <!-- Static icons don't work with linearGradient -->
+      <svg class="icon icon-16" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+        <defs>
+            <linearGradient id="prefix__a" x1="51.517%" x2="51.517%" y1="94.293%" y2=".139%">
+                <stop offset="0%" stop-color="#FFFEF9"/>
+                <stop offset="100%" stop-color="#FFF"/>
+            </linearGradient>
+        </defs>
+        <g fill="none" fill-rule="evenodd">
+            <path fill="url(#prefix__a)" d="M1.022 5.698l4.134 2.426c.95.49 2.08.49 3.03 0l4.134-2.426c1.36-.8 1.36-2.107 0-2.907L8.187.364c-.952-.488-2.08-.488-3.031 0L1.022 2.791c-1.36.8-1.36 2.08 0 2.907z" transform="translate(1.5)"/>
+            <path fill="#FFF" d="M11.876 7.849c.31-.181.694-.181 1.004 0 .253.089.422.327.422.595 0 .268-.17.507-.422.596l-5.2 2.942c-.636.33-1.391.33-2.027 0L.453 9.04C.2 8.951.031 8.712.031 8.444c0-.268.17-.506.422-.595.31-.181.695-.181 1.005 0l4.195 2.355c.636.33 1.391.33 2.027 0l4.196-2.355z" opacity=".5" transform="translate(1.5)"/>
+            <path fill="#FFF" d="M11.876 11.404c.31-.18.694-.18 1.004 0 .253.09.422.328.422.596 0 .268-.17.507-.422.596l-5.2 2.942c-.636.329-1.391.329-2.027 0l-5.2-2.942C.2 12.506.031 12.268.031 12c0-.268.17-.507.422-.596.31-.18.695-.18 1.005 0l4.195 2.356c.636.329 1.391.329 2.027 0l4.196-2.356z" opacity=".3" transform="translate(1.5)"/>
+        </g>
+      </svg>
+      <span translate>registration.container.features.get_personal_offers</span>
+    </p>
+    <p>
+      <svg class="icon icon-16"><use xlink:href="#icon-commerceos-registration-features-grow-sales"></use></svg>
+      <span translate>registration.container.features.no_credit_card</span>
+    </p>
+  </div>
+</div>
+
+<div class="entry-layout-terms">{{'login.terms_registering' | translate}} <a target="_blank" href="https://getpayever.com/agb/">{{'login.terms_service' | translate}}</a> {{'login.terms_read' | translate}} <a target="_blank" href="https://getpayever.com/about/privacy/">{{'login.terms_policy' | translate}}</a></div>

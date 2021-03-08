@@ -1,0 +1,22 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import url('../../../../../node_modules/normalize.css/normalize.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+os-commerce .root-container {
+  padding: 0 !important;
+}
+
+cos-next-studio-root {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  background: $color-background;
+}
+
+.studio-container {
+  height: calc(100% - 26px);
+}

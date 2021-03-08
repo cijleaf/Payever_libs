@@ -1,0 +1,32 @@
+<div class="add-business-layout">
+  <pe-info-box [transparent]="true"
+               [fixed]="!(isMobile$ | async)"
+               [withHeader]="false"
+               [withFooter]="false"
+               [withPadding]="false"
+               class="add-business-box">
+    <ng-container content>
+      <mat-accordion>
+        <mat-expansion-panel [class.mat-expansion-panel-dark]="true"
+                             [class.mat-expansion-panel-dark-extended]="true"
+                             [expanded]="true"
+                             [disabled]="true"
+        >
+          <mat-expansion-panel-header class="mat-expansion-panel-header-light"
+                                      collapsedHeight="55px"
+                                      expandedHeight="55px"
+          >
+            <svg class="icon icon-24 icon-add-business"><use xlink:href="#icon-plus-24"></use></svg>
+            <pe-navbar class="add-business-navbar" [controls]="headerControls"></pe-navbar>
+          </mat-expansion-panel-header>
+          <entry-create-business-form [errors]="errorBag"
+                                       [isLoading]="isLoading"
+                                       (submitClicked)="onFormDataReceive($event)"
+                                       (formDataEmitter)="onFormDataReceive($event, false)"
+          ></entry-create-business-form>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-container>
+
+  </pe-info-box>
+</div>

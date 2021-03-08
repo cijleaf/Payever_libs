@@ -1,0 +1,19 @@
+<pe-platform-header
+  [color]="color"
+  [position]="position"
+  [notificationControls]="connectionControls"
+  [style]="style"
+  [showAlert]="showBadConnectionAlert$ | async"
+>
+<!-- [fixed]="false" -->
+  <profile-menu *ngIf="isTranslations$ | async"
+
+    [loggedIn]="loggedIn$ | async"
+    [businessesCount]="businessesCount"
+    [isPersonalAccountMode]="isPersonalAccountMode"
+    [profileButtonTitle]="dashboardDataService.label"
+    [profileButtonImage]="dashboardDataService.logo"
+    (profileButtonClicked)="navigateToSwitcher()"
+    (notificationsSidebarClicked)="notificationsButtonClick()"
+  ></profile-menu>
+</pe-platform-header>

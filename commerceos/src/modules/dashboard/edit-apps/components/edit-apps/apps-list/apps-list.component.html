@@ -1,0 +1,25 @@
+<ng-container *ngFor="let app of apps; last as isLast">
+    <mat-list-item class="app-item">
+        <div class="mat-list-item-flex">
+            <div class="mat-list-item-col">
+                <div class="icon-prepend" [style.background-image]="('url(' + (getRetinaIcon(app.icon) | iconsPngUrl) + ')') | safeStyle"></div>
+                <span class="app-title">{{ app.title }}</span>
+            </div>
+        </div>
+        <div class="text-right">
+            <button *ngIf="!app.default"
+                    [class.edit-apps-install]="!app.installed"
+                    [class.edit-apps-uninstall]="app.installed"
+                    mat-raised-button
+                    [disabled]="app.disabledClick"
+                    (click)="onAppToggle.emit(app)"
+                    class="edit-apps-uninstall"
+                    [class.+mat-button-rounded]="true"
+                    [class.mat-button-xs]="true"
+                    [color]="'muted-white'">
+                {{app.installed ? installText : uninstallText}}
+            </button>
+        </div>
+    </mat-list-item>
+    <mat-divider *ngIf="!isLast" class="mat-divider mat-divider-horizontal"></mat-divider>
+</ng-container>

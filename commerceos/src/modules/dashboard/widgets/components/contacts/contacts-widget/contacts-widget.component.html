@@ -1,0 +1,56 @@
+<pe-widget *ngIf="widget" [widget]="widget" [theme]="theme$ | async">
+  <div class="contacts-widget">
+    <div class="contacts-widget__data">
+      <div class="contacts-widget__section" *ngFor="let section of sections">
+        <div class="contacts-widget__small-title">{{ section.title | translate}}</div>
+        <div class="contacts-widget__big-title">{{ section.value }}</div>
+      </div>
+    </div>
+    <button mat-button class="mat-button-no-padding mat-button-rect-md contacts-widget__button widget__open-button" (click)="onAddContact()">
+      <pe-progress-button-content [loading]="addContactLoading">
+        <div class="mat-button-rect-inner-horizontal">
+          <div class="button-title" translate>widgets.contacts.actions.add-contact</div>
+        </div>
+      </pe-progress-button-content>
+    </button>
+  </div>
+</pe-widget>
+<!--TODO: Remove after approving WIDGET-1, COSF-343-->
+<!--<widget-card-->
+<!--  [appCode]="appName"-->
+<!--  [title]="'widgets.contacts.title' | translate"-->
+<!--  [iconSrc]="iconUrl | iconsPngUrl"-->
+<!--  [installIconSrc]="installIconUrl | iconsPngUrl"-->
+<!--  [learMoreUrl]="widget?.helpUrl"-->
+<!--  [showSpinner]="showSpinner$ | async"-->
+<!--  [showButtonSpinner]="showButtonSpinner$ | async"-->
+<!--  [installAppButtonText]="installAppButtonText | translate"-->
+<!--  (onClick)="onOpenButtonClick()"-->
+<!--&gt;-->
+<!--  <widget-statistics [sections]="sections"></widget-statistics>-->
+
+<!--  &lt;!&ndash;-->
+<!--  <button mat-raised-button color="muted-transparent" class="add-contact mat-button-rect-md mat-button-no-padding">-->
+<!--    <div class="mat-button-rect-inner-horizontal">-->
+<!--      <svg class="icon icon-24">-->
+<!--        <use xlink:href="#icon-widgets-new-contact-24"></use>-->
+<!--      </svg>-->
+<!--      <span class="button-title">{{'widgets.contacts.actions.add' | translate}}<span class="hidden-xs"> {{'widgets.contacts.actions.add-contact' | translate}}</span></span>-->
+<!--    </div>-->
+<!--  </button>-->
+<!--  &ndash;&gt;-->
+<!--  <widget-action-button class="contacts-widget-button"-->
+<!--                        [title]="'widgets.contacts.actions.add-contact' | translate"></widget-action-button>-->
+<!--  &lt;!&ndash;-->
+<!--  <ng-container more>-->
+<!--    <div class="last-added" translate>widgets.contacts.last-added</div>-->
+<!--    <div class="contacts-wrapper ">-->
+<!--      <ng-container *ngFor="let contact of contacts">-->
+<!--        <div class="pe-truncate-text">-->
+<!--          <div class="contact-name pe-truncate-text">{{contact.firstName + ' ' + contact.lastName}}</div>-->
+<!--          <div class="contact-status">{{contact.status}}</div>-->
+<!--        </div>-->
+<!--      </ng-container>-->
+<!--    </div>-->
+<!--  </ng-container>&ndash;&gt;-->
+<!--</widget-card>-->

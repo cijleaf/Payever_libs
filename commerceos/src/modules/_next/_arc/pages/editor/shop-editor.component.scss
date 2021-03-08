@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+peb-editor {
+  display: block;
+  height: calc(100% - 35px);
+  font-size: 13px;
+}

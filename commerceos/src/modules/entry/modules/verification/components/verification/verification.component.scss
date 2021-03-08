@@ -1,0 +1,57 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.commerceos-verification {
+  .verification-header {
+    @include pe_flexbox;
+    @include pe_align-items(center);
+    @include pe_justify-content(space-between);
+    margin-top: $pe_vgrid_height * 3;
+    padding: $grid-unit-y 0;
+
+    .verification-header-item {
+      line-height: $grid-unit-y * 2;
+      width: 100%;
+      text-align: center;
+    }
+
+    .verification-header-item_login {
+      // margin-bottom: -$margin-adjust*17.5;
+    }
+
+    .verification-header-grow-item {
+      @include pe_flex-grow(1);
+    }
+  }
+
+  @media (max-width: $viewport-breakpoint-xs-2 - 1) {
+    .verification-header {
+      padding: ceil($grid-unit-x / 2) 0;
+      margin: $grid-unit-y;
+      .verification-header-item {
+        line-height: $grid-unit-y * 2;
+      }
+    }
+  }
+
+  .personal-business {
+    .name {
+      border-top-left-radius: $border-radius-base * 2;
+      border-top-right-radius: 0 !important;
+    }
+    .last-name {
+      border-top-right-radius: $border-radius-base * 2;
+    }
+  }
+  /*
+  @media (max-width: $viewport-breakpoint-ipad - 1) {
+    .personal-business {
+      .name {
+        border-top-right-radius: $border-radius-base * 2 !important;
+      }
+      .last-name {
+        border-top-right-radius: 0;
+      }
+    }
+  }*/
+}

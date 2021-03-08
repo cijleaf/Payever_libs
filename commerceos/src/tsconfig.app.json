@@ -1,0 +1,172 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "types": [
+      "node",
+      "swiper"
+    ]
+  },
+  "files": [
+    "apps/standalone/main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "./**/*.d.ts",
+    "../node_modules/@pe/ng-kit/modules/address/index.ts",
+    "../node_modules/@pe/ng-kit/src/kit/address/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/auth/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/auth/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/divider/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/divider/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/file-drop/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/file-drop/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/backend-logger/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/backend-logger/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/blurry/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/blurry/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/browser/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/browser/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/button/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/button/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/docker/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/docker/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/business/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/business/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/common/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/common/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/custom-component-adapter/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/custom-component-adapter/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/dev/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/dev/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/environment-config/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/environment-config/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/feedback/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/feedback/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/form-core/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/form-core/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/form-components-*/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/form-components/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/form/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/form/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/tooltip/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/tooltip/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/full-story/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/full-story/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/i18n/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/i18n/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/icons-provider/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/icons-provider/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/layout/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/layout/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/media/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/media/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/navbar/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/navbar/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/profile-switcher/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/profile-switcher/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/recaptcha/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/recaptcha/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/micro/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/micro/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/search/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/search/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/search-results/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/search-results/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/slider/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/slider/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/theme-switcher/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/theme-switcher/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/local-storage/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/local-storage/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/location/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/location/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/modal/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/modal/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/notification2/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/notification2/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/overlay-box/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/overlay-box/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/src/kit/spinner/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/src/kit/swiper/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/platform-header/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/platform-header/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/profile/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/profile/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/profile-container/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/profile-container/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/translation/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/translation/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/wallpaper/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/wallpaper/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/window/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/window/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/notification/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/notification/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/dialog/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/dialog/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/snack-bar/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/snack-bar/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/modules/sidebar/**/*.ts",
+    "../node_modules/@pe/ng-kit/src/kit/sidebar/**/*.ts",
+
+    "../node_modules/@pe/ui-kit/index.ts",
+    "../node_modules/@pe/ui-kit/scss/pe-variables.ts",
+    "../node_modules/@pe/ng-kit/src/kit/pe-variables.ts",
+
+    "../node_modules/@pe/ng-kit/src/kit/custom-component-adapter/**/*.ts",
+
+    "../node_modules/@pe/ng-kit/src/kit/utils.ts"
+  ],
+  "angularCompilerOptions": {
+    "preserveWhitespaces": true
+  }
+}

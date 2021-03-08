@@ -1,0 +1,60 @@
+<div *ngIf="currentMicroAppName !== 'pos' && currentMicroAppName !== 'studio'" [hidden]="(peStepperService.isActive$ | async) && (peStepperService.currentStep$ | async)?.action !== PeWelcomeStepAction.ShopPreview">
+  <platform-header-component
+    [businessesCount]="(businessesList$ | async)?.length"
+    [isPersonalAccountMode]="isPersonalAccountMode$ | async"
+  ></platform-header-component>
+</div>
+
+<!-- @DEPRECATED -->
+<pe-welcome-stepper
+  [top]="(headerHeightForStepper$ | async) || (stepperTopOffset$ | async)"
+></pe-welcome-stepper>
+
+<!-- TODO remove. Please place this component inside app. Example: src/modules/_next/checkout/root/checkout-root.component.html -->
+<pe-simple-welcome-stepper id="cos-deprecated-simple-welcome-stepper" class="simple-stepper" [style.top.px]="stepperTopOffset$ | async"
+></pe-simple-welcome-stepper>
+
+<div #background
+  class="root-bg-container"
+  [hidden]="!(showBackgroundView$ | async)"
+  [style.background-image]="backgroundImage$ | async">
+</div>
+
+<pe-sidebar
+  [isOpen]="sideBarOpenedView$ | async"
+  [configuration]="configuration$ | async"
+  (onSidebarClosed)="setSidebarState(false)"
+  [class.pe-bootstrap]="sideBarOpenedView$ | async"
+>
+  <notifications [class.hidden]="!sideBarOpened$ | async"></notifications>
+</pe-sidebar>
+
+<div #rootElement
+  class="root-container"
+  [class.root-no-padding]="currentMicroAppName === 'pos' || currentMicroAppName === 'studio'"
+>
+<pe-new-platform-header *ngIf="currentMicroAppName === 'pos'"></pe-new-platform-header>
+  <span [class.hidden]="showMicroApp$ | async" *ngIf="!reloadingTranslations">
+    <router-outlet></router-outlet>
+  </span>
+
+  <div
+    class="app-selector-overlay"
+    *ngIf="appSelectorService.selectorShowed$ | async"
+    [style.background-image]="blurredbackgroundImage$ | async"
+    [ngClass]="'theme-' + (theme$ | async)"
+  >
+    <button class="close-button" (click)="closeAppSelect()">
+      Close
+    </button>
+    <apps-layout [dashboardItems]="appSelectorService.apps"></apps-layout>
+  </div>
+
+  <div class="pe-micro-container"
+    [hidden]="!(showMicroApp$ | async)"
+    [class.below-platform-header]="(isLazyAppUsedPlatformHeader$ | async) && !(currentMicroAppName === 'pos')"
+    [class.below-welcome-stepper]="(peStepperService.isActive$ | async) || (peSimpleStepperService.isVisible$ | async)"
+    [class.below-platform-subheader]="(isLazyAppUsedPlatformHeader$ | async) && (isSubheaderVisible$ | async) && !(currentMicroAppName === 'pos')"
+    [class.with-header-notification]="showAlertInHeader$ | async"
+  ></div>
+</div>

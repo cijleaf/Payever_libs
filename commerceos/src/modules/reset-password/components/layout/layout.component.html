@@ -1,0 +1,16 @@
+<div class="entry-layout-reset-password commerceos-info-box-wrap" peScrollHide [hideHorizontalScrollbar]="true">
+  <pe-info-box [withPadding]="true"
+               [withHeader]="false"
+               [withFooter]="false"
+               [blurred]="true"
+               [backdropFilterBlur]="true"
+               [fixed]="!(isMobile$ | async)"
+               [noBackgroundColor]="true"
+  >
+    <ng-container content>
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </ng-container>
+  </pe-info-box>
+</div>

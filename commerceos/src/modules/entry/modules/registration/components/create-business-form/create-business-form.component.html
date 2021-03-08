@@ -1,0 +1,19 @@
+<form novalidate class="form-table form-table-no-margin" [formGroup]="form" *ngIf="form">
+  <pe-form-fieldset
+    class="transparent pe-form-fieldset"
+    [isSubmitted]="isSubmitted"
+    [fields]="formScheme.fieldsets['login']"
+    [formGroup]="form"
+    [hideDisabled]="false"
+    [translationScope]="formTranslationsScope"
+    [errors]="errors$ | async"
+    [formStyle]="'transparent'"
+    (errorHandler)="onError($event)"
+  ></pe-form-fieldset>
+
+  <button mat-raised-button class="mat-button-block" type="submit" [disabled]="isLoading" (click)="onSubmit()">
+    <pe-progress-button-content class="mat-progress-spinner-light" [loading]="isLoading">{{
+      submitTextKey | translate
+    }}</pe-progress-button-content>
+  </button>
+</form>

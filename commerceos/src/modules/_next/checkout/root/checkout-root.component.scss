@@ -1,0 +1,200 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+
+os-commerce .root-container { // TODO Should be removed
+  padding: 0 !important;
+
+  .dark .checkout-sdk-finish-modal-mode-container {
+    background: #f7f7f7 !important;
+  }
+}
+
+.profile-list-layout .mat-card-transparent .card-content-center-align .profile-list-container {
+  color: white;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.checkout-app-container {
+  width: 100%;
+  height: 100%;
+
+
+  &.checkout-dark-theme {
+    background-color: rgba(36, 39, 46, 0.85);
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+  }
+
+  &.checkout-light-theme {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(50px);
+  }
+
+  &.checkout-transparent-theme {
+    background-color: rgba(36, 39, 46, 0.3);
+  }
+
+  pe-simple-welcome-stepper {
+    position: static;
+    display: flex;
+
+    .pe-simple-stepper {
+      position: static;
+      width: 100%;
+    }
+  }
+
+  .top-offset-fix {
+    transform: translateX(0);
+  }
+
+  .checkout-header {
+    padding: 0 20px;
+    border: none;
+    background-color: transparent;
+
+
+    .header-container {
+      padding: 0;
+    }
+
+    .main-item-button {
+      padding-right: .8em;
+    }
+
+    &.section-left {
+      height: 26px;
+
+      .section-button {
+        padding: 0 .8em 0 .8em;
+
+        &.active-button {
+          background-color: #ffffff33 !important;
+        }
+      }
+
+      &.section-right {
+        .section-button {
+
+          &:last-of-type {
+            margin-left: 6px;
+          }
+
+          &.business-button {
+            padding: 0;
+          }
+
+          &__icon {
+            margin-left: 6px;
+            margin-right: 6px;
+          }
+        }
+
+        .close-button {
+          margin-left: 18px;
+        }
+      }
+    }
+  }
+
+  .checkout-app-content {
+    position: relative;
+    flex: 1;
+    background-color: transparent;
+  }
+}
+
+pe-new-platform-header.checkout-header {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+
+  .header-container {
+    padding-top: 0;
+
+    .section-right {
+      .section-button {
+        margin-right: 5px;
+
+        &__icon {
+          height: 24px !important;
+          width: 24px !important;
+        }
+
+        &.checkout-header-hamburger-icon {
+          .section-button__icon {
+            height: 20px !important;
+            width: 20px !important;
+          }
+        }
+      }
+
+      .business-button {
+        padding: 0;
+
+        svg {
+          height: 16px !important;
+          width: 16px !important;
+        }
+      }
+    }
+  }
+
+  &.no-z-index {
+    z-index: 0;
+  }
+}
+
+.checkout-header .close-button.checkout-header-close {
+  cursor: pointer;
+}
+
+.cdk-overlay-container .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane {
+  margin-top: 3px;
+
+  .mat-menu-panel {
+    min-width: 64px;
+    max-width: 360px;
+    min-height: 0;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    border-radius: 16px;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.4);
+    -webkit-mask-image: none;
+
+    &.mat-menu-dark {
+      background-color: rgba(28, 29, 30, 0.85) !important;
+
+      .mat-menu-item,
+      .mat-menu-item .icon {
+        color: white;
+      }
+    }
+
+    .mat-menu-content {
+      padding-top: 0;
+      padding-bottom: 0;
+      background-color: transparent;
+
+      .mat-menu-item {
+        border: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .checkout-app-container {
+    pe-new-platform-header.checkout-header.subheader-mode {
+      .header-container.subheader-mode {
+        padding: 0 16px;
+      }
+    }
+  }
+}

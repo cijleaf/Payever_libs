@@ -1,0 +1,18 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.profile-toggle-btn {
+  padding: 0;
+  border-radius: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  line-height: 0;
+  @media screen and (max-width: $viewport-breakpoint-sm-2) {
+    right: $margin_adjust * 2.5;
+  }
+
+  .default-profile-icon {
+    color: $color-secondary;
+  }
+}

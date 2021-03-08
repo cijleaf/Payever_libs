@@ -1,0 +1,44 @@
+<ng-container *ngFor="let app of apps; let i=index">
+  <div
+    class="app-item"
+    [class.compact]="isCompactItems"
+    [class.mobile-version]="isMobile$ | async"
+    [class.full-page]="!isCompactItems"
+    [class.extended-widget-section]="isWidgetExtendedSection"
+    [ngClass]="'theme-' + (theme$ | async)"
+    (click)="backWhenOutsideClick && handleOutsideIconClick($event)"
+  >
+    <div class="hover-wrapper" [attr.data-pe-app]="app.code"
+      [class.hover-wrapper-loading]="(appLoading$ | async) === app.code" (click)="app.onSelect($event)">
+      <div class="icon" [ngClass]="{ 'icon-prepend-not-widget' : !isCompactItems, 'icon-prepend': isCompactItems}"
+        [style.background-image]="('url(' + (getRetinaIcon(app.installed, app.icon) | iconsPngUrl) + ')') | safeStyle">
+      </div>
+
+      <div *ngIf="(appLoading$ | async) === app.code" class="loader-container">
+        <div class="spinner-container">
+          <mat-progress-spinner class="example-margin mat-progress-spinner-light" [strokeWidth]="2" [diameter]="26"
+            [mode]="'indeterminate'" [value]="50">
+          </mat-progress-spinner>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-title">
+      <div class="title">
+        <span *ngIf="app.installed && app.code !== 'settings' &&
+              (app.setupStatus === 'notStarted' || app.setupStatus === 'started')" class="not-set-up"></span>
+        <span *ngIf="!app.installed" class="not-added"></span>
+        {{app.title}}
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isCompactItems">
+  <div class="app-item full-page fake"></div>
+  <div class="app-item full-page fake"></div>
+  <div class="app-item full-page fake"></div>
+  <div class="app-item full-page fake"></div>
+  <div class="app-item full-page fake"></div>
+  <div class="app-item full-page fake"></div>
+  <div class="app-item full-page fake"></div>
+</ng-container>

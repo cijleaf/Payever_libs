@@ -1,0 +1,107 @@
+// TODO Refactor that file, use color variables
+
+.welcome-screen {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.2);
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.welcome-screen-content {
+  max-width: 520px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media(max-width: 520px) {
+    max-width: 100%;
+  }
+}
+
+.welcome-screen-image {
+  width: 86px;
+  height: 86px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 18px;
+}
+
+.welcome-screen-content-title {
+  //font-family: HelveticaNeue;
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: -0.68px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0px;
+}
+
+.welcome-screen-content-description {
+  //font-family: HelveticaNeue;
+  opacity: 0.8;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.94;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.welcome-screen-content-button {
+  outline: none;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  color: #3d3d3d;
+  background-color: #ffffff;
+  border: none;
+  padding: 8px 90px;
+  border-radius: 7px;
+  margin-bottom: 18px;
+
+  ::ng-deep mat-spinner {
+    margin: auto;
+
+    circle {
+      stroke: rgba(#000000, 0.25);
+    }
+  }
+}
+
+.welcome-screen-content-aclaration {
+  //font-family: HelveticaNeue;
+  font-size: 10px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 150%;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+
+  ::ng-deep a {
+    cursor: pointer;
+    color: #ffffff !important;
+    font-weight: 600;
+  }
+
+  ::ng-deep span {
+    text-transform: capitalize;
+  }
+}

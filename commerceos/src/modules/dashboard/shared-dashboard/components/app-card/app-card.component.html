@@ -1,0 +1,59 @@
+<div fixIEMouseWheel class="app-wrapper">
+    <mat-card class="app-card">
+
+    <!--<div class="app-card-header">-->
+      <!--<div class="app-card-header-info">-->
+        <!--<div class="app-business-info">-->
+          <!--<active-business class="app-business-info-component"-->
+                           <!--[logo]="profileButtonImage | mediaUrl:'images'"-->
+                           <!--[name]="profileButtonTitle"-->
+                           <!--[size]="48"-->
+                           <!--[noMargin]="true">-->
+          <!--</active-business>-->
+          <!--<button-->
+                  <!--*ngIf="withEditButton"-->
+                  <!--mat-raised-button-->
+                  <!--color="muted-white"-->
+                  <!--class="app-business-edit mat-button-rounded mat-button-icon mat-button-sm dropdown-button"-->
+                  <!--[matMenuTriggerFor]="menu">-->
+            <!--<svg class="icon icon-24"><use xlink:href="#icon-dots-h-24"></use></svg>-->
+          <!--</button>-->
+        <!--</div>-->
+        <!--<mat-menu-->
+                <!--#menu="matMenu"-->
+                <!--class="mat-menu-dark"-->
+                <!--[xPosition]="'before'">-->
+          <!--<button-->
+                  <!--mat-menu-item-->
+                  <!--(click)="openEditBox()">-->
+            <!--Edit-->
+          <!--</button>-->
+        <!--</mat-menu>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="app-card-content">
+      <ng-content select="[top]"></ng-content>
+    </div>
+    <ng-container *ngIf="isUninstalledApps">
+      <mat-divider></mat-divider>
+      <div class="app-card-header after-divider">
+          <span  class="app-card-header-title">
+           {{'dashboard.header.not_installed' | translate}}
+          </span>
+      </div>
+    </ng-container>
+    <div class="app-card-content">
+      <ng-content select="[bottom]"></ng-content>
+    </div>
+  </mat-card>
+
+  <div class="edit-install-wrapper" *ngIf="withEditButton">
+    <button class="edit-install"
+            (click)="openEditBox()"
+            [class.mat-button-rounded]="true"
+            [class.mat-button-xl]="true"
+            color="dark"
+            mat-raised-button
+    >{{'edit_apps.enter_button' | translate}}</button>
+  </div>
+</div>

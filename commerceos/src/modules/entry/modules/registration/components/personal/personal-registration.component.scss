@@ -1,0 +1,90 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host {
+  .registration-header-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 110%;
+    color: $color-white;
+    margin: 16px 0 24px;
+  }
+
+  .features {
+    border-radius: $border-radius-base * 2;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 13px;
+
+    &__lines {
+      display: flex;
+      flex-direction: column;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: normal;
+
+      .icon {
+        margin-right: 12px;
+      }
+
+      p {
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .entry-layout-terms {
+    margin-top: 18px;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+    color: $color-secondary-6;
+    a {
+      cursor: pointer;
+      font-size: 13px;
+      color: $color-secondary-0;
+      font-weight: 500;
+    }
+  }
+}
+
+.personal-business {
+  .name {
+    border-top-right-radius: 0 !important;
+  }
+  .last-name {
+    border-top-right-radius: $border-radius-base * 2;
+  }
+}
+
+@media (max-width: $viewport-breakpoint-ipad - 1) {
+  .personal-business {
+    .name {
+      border-top-right-radius: $border-radius-base * 2 !important;
+    }
+    .last-name {
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+:host::ng-deep {
+  entry-create-user-form .form-table .form-fieldset .row > [class*=col] {
+    &:first-child.col-xs-6 {
+      border-top-left-radius: $border-radius-base * 3 !important;
+    }
+    &:first-child.col-xs-6 + .col-xs-6 {
+      border-top-right-radius: $border-radius-base * 3 !important;
+    }
+  }
+}

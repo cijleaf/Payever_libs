@@ -1,0 +1,1 @@
+export const SNACK_BAR_TOGGLE_TIMEOUT = 5000;

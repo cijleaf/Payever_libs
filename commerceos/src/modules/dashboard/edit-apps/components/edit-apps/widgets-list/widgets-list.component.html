@@ -1,0 +1,13 @@
+<apps-list [apps]="installed$ | async"
+           [installText]="'edit_apps.actions.delete' | translate"
+           (onAppToggle)="delete($event)">
+</apps-list>
+
+<div class="not-installed-title"
+     *ngIf="(uninstalled$ | async)?.length"
+     [class.bordered]="(uninstalled$ | async)?.length">{{ 'edit_apps.not_added' | translate }}</div>
+
+<apps-list [apps]="uninstalled$ | async"
+           [uninstallText]="'edit_apps.actions.add' | translate"
+           (onAppToggle)="add($event)">
+</apps-list>

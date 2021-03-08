@@ -1,0 +1,51 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  .apps-dashboard-wrapper {
+    align-items: center;
+    background-color: $color-primary-8;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    transition: 0.5s linear all;
+    width: 100%;
+
+    ::ng-deep .app-wrapper {
+      max-width: 996px;
+    }
+
+    &.fade {
+      filter: blur(30px);
+      opacity: 0.1;
+    }
+
+    @media(min-width: $viewport-breakpoint-sm-2) {
+      ::ng-deep .hover-wrapper {
+        width: 85px;
+      }
+    }
+
+    ::ng-deep .app-title {
+      .title {
+        font-size: 11px;
+      }
+    }
+  }
+  @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+    & {
+      transform: translateX(0); // fix issue in iOs 12
+    }
+  }
+  @media (max-width: $viewport-breakpoint-ipad - 1) {
+    .apps-dashboard-wrapper {
+      width: 100%;
+    }
+  }
+}

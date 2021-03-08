@@ -1,0 +1,13 @@
+<div class="welcome-screen">
+  <div class="welcome-screen-content">
+    <div class="welcome-screen-image" [style.backgroundImage]="icon"></div>
+    <div class="welcome-screen-content-title">{{ title }}</div>
+    <div class="welcome-screen-content-description">{{ message }}</div>
+    <button class="welcome-screen-content-button" (click)="onGetStarted()">
+      <pe-progress-button-content spinnerDiameter="22" [loading]="isLoading">
+        {{ getStarted }}
+      </pe-progress-button-content>
+    </button>
+    <div class="welcome-screen-content-aclaration" [innerHTML]="herebyConfirm"></div>
+  </div>
+</div>

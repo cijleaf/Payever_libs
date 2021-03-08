@@ -1,0 +1,43 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import url('../../../../../node_modules/normalize.css/normalize.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$stepper-height: 65px;
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+os-commerce .root-container {
+  padding: 0 !important;
+}
+
+:host {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  background: $color-background;
+}
+
+.builder-container {
+  height: calc(100% - 26px);
+  position: relative;
+
+  &.dashboard-container {
+    height: calc(100% - 10px);
+  }
+
+  &.below-welcome-stepper {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - #{$stepper-height});
+    top: $stepper-height;
+    transform: translateX(0);
+    bottom: 0;
+  }
+}

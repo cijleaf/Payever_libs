@@ -1,0 +1,79 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.notifications-type-wrapper {
+  @include pe_flexbox;
+  @include pe_align-items(center);
+  @include pe_justify-content(center);
+
+  height: $grid-unit-y * 5;
+  border-bottom: 1px solid $color-secondary-2;
+}
+
+.widget-notifications-wrapper {
+  background-color: $color-primary-4;
+
+  .mat-card {
+    padding: 0;
+  }
+
+  .close-button {
+    margin-right: -6px;
+    min-width: 0 !important;
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    line-height: 0;
+    font-size: 14px;
+  }
+
+  .notification-item {
+    padding: 1.4*$grid-unit-y 2.5*$grid-unit-x 1.3*$grid-unit-y 2*$grid-unit-x;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-secondary-2;
+    }
+  }
+
+  $icon-width: 18px;
+  $actions-width: 90px;
+
+  .notification-item {
+    color: var(--color-secondary-0);
+    font-weight: 400;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .notification-icon {
+      flex-basis: $icon-width;
+      text-align: left;
+    }
+
+    .notification-title {
+      flex-basis: calc(100% - #{$actions-width} - #{$icon-width});
+    }
+
+    .notification-actions {
+      flex-basis: $actions-width;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      button {
+        margin-left: 0.5*$grid-unit-x;
+        ::ng-deep .mat-button-wrapper {
+          line-height: 25px;
+        }
+      }
+    }
+  }
+
+  .no-notifications {
+    .notification-item {
+      padding: 16px; // TODO Variable
+    }
+  }
+}

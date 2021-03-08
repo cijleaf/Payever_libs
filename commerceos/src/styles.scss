@@ -1,0 +1,319 @@
+/* For entry page we have custom dark styles */
+
+.pe-bootstrap .commerceos-info-box-wrap {
+  .mat-card-transparent .mat-card-content-padding-sm {
+    padding: 24px 26px;
+  }
+
+  .mat-card-transparent .mat-card-content .mat-button-block {
+    color: #fff;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+  }
+
+  .mat-expansion-panel-dark-extended .mat-expansion-panel-header,
+  .mat-expansion-panel-dark-extended .mat-expansion-panel-header[aria-disabled="true"] {
+    background-color: rgba(0, 0, 0, 0.55);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .mat-expansion-panel-dark .mat-expansion-panel-header-title {
+    font-size: 13px;
+  }
+
+  .mat-expansion-panel-dark-extended:not(:first-child) {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mat-expansion-panel-dark:not(.mat-expanded):not(:last-of-type) {
+    border-bottom: none;
+  }
+
+  .form-table pe-form-fieldset.transparent .form-fieldset .row > [class*="col"],
+  .form-table .pe-form-fieldset.transparent .form-fieldset .row > [class*="col"],
+  .form-table .form-fieldset-container.transparent .form-fieldset .row > [class*="col"] {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .mat-form-field,
+  .form-table pe-form-fieldset.transparent .form-fieldset .row > [class*="col"] .mat-form-field-label,
+  .form-table .pe-form-fieldset.transparent .form-fieldset .row > [class*="col"] .mat-form-field-label,
+  .form-table .form-fieldset-container.transparent .form-fieldset .row > [class*="col"] .mat-form-field-label,
+  .form-table pe-form-fieldset.transparent .form-fieldset .row > [class*="col"] .mat-form-field .mat-input-element,
+  .form-table .pe-form-fieldset.transparent .form-fieldset .row > [class*="col"] .mat-form-field .mat-input-element,
+  .form-table
+    .form-fieldset-container.transparent
+    .form-fieldset
+    .row
+    > [class*="col"]
+    .mat-form-field
+    .mat-input-element {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 170%;
+    color: rgba(#ffffff, 0.45);
+  }
+
+  pe-input-password .input-password-errors {
+    width: 80% !important;
+  }
+
+  // Safari fix
+
+  .info-box .mat-card-transparent {
+    overflow: hidden !important;
+  }
+}
+
+.products-header.b-light .header-container {
+  .section-button {
+    color: black;
+  }
+  .close-button {
+    color: black;
+    background-color: #ffff;
+  }
+  .dg-toggle svg {
+    path {
+      &:first-child {
+        stroke: black;
+      }
+      &:last-child {
+        fill: black;
+      }
+    }
+    g {
+      opacity: 1;
+    }
+  }
+}
+
+.pe-builder-styles{
+  font-size: 13px;
+  div.pages{
+    overflow: auto;
+    overflow: overlay;
+    @media (min-width: 720px) {
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+    }
+  }
+  #content{
+    @media (min-width: 720px) {
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+    }
+  }
+}
+
+/* Safari borders fix */
+.pe-bootstrap .top-rounded {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.hidden-content {
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  width: 0;
+}
+
+/* Mat menu classes for POS terminal (used without .pe-bootstrap) */
+.terminal-menu {
+  .mat-menu-content {
+    background-color: #111111d9 !important;
+    opacity: 1;
+  }
+
+  .mat-menu-item {
+    color: white;
+    height: 33px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 33px;
+
+    &:hover {
+      background-color: var(--color-secondary-2) !important;
+    }
+  }
+
+  &.mat-menu-panel {
+    box-shadow: 0 2px 10px rgba(17, 17, 17, 0.15);
+    background-color: var(--color-primary-0) !important;
+    border-radius: 8px;
+    margin-top: 5.5px;
+    margin-bottom: 5.5px;
+    min-height: 48px;
+    max-height: 66vh;
+  }
+}
+
+// /* Mat menu classes for new header (used without .pe-bootstrap) */
+
+div.pe-header-menu.mat-menu-panel {
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 12px 0px;
+  background-color: rgba(28, 29, 30, 0.85);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  border-radius: 12px;
+  width: 267px;
+  padding: 16px 8px 8px;
+
+  .title {
+    padding: 6px 8px 4px;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .mat-menu-content {
+    padding: 12px;
+  }
+
+  .mat-menu-item {
+    color: white;
+    font-size: 16px;
+    padding: 6px 8px;
+    margin-top: 8px;
+    line-height: 0;
+
+    svg {
+      vertical-align: text-bottom;
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    &:hover {
+      background-color: #0371e2 !important;
+      border-radius: 7px;
+    }
+  }
+}
+
+
+.mat-spinner-themed svg circle {
+  stroke: var(--color-secondary-0, #fff);
+}
+
+.mat-spinner-black svg circle {
+  stroke: #000;
+}
+
+.mat-spinner-white svg circle {
+  stroke: #fff;
+}
+
+.mat-snackbar-shop-panel-class {
+  background-color: #8e8e93 !important;
+}
+
+.mat-snackbar-settings-panel-class {
+  background-color: #8e8e93 !important;
+}
+
+.themes-preview-dialog mat-dialog-container.mat-dialog-container {
+  border-radius: 0;
+  padding: 0;
+}
+
+.viewer-scrollbar .ng-native-scrollbar-hider {
+  height: calc(100% + 14px);
+}
+
+.pe-data-grid-scroll {
+  .ng-scroll-viewport {
+    display: flex;
+    flex-direction: column;
+  }
+  .ng-scroll-content {
+    flex: 1;
+  }
+}
+// Show sprites (SVG symbols). Needed for gradient background issue.
+.sprite,
+.pe-icons-container {
+  position: absolute;
+  top: 100vh;
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.error-dialog {
+  mat-dialog-container {
+    border-radius: 12px;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4) !important;
+  }
+}
+
+.mat-menu-content {
+  background-color: transparent !important;
+}
+
+.menu {
+  &__button {
+    &__icon {
+      align-items: center;
+      display: flex !important;
+      justify-content: center;
+      height: 20px;
+      padding: 0 !important;
+      width: 20px;
+
+      .mat-icon {
+        display: flex;
+        max-width: 14px;
+        max-height: 14px;
+      }
+    }
+  }
+}
+
+.dark {
+  &.mat-select-panel {
+    padding: 8px;
+
+    .mat-option {
+      color: white !important;
+      padding: 6px 8px;
+
+      &.mat-selected:not(.mat-option-multiple) {
+        color: white !important;
+      }
+
+      &:hover {
+        background-color: #0371e2 !important;
+      }
+    }
+  }
+  .chip {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}

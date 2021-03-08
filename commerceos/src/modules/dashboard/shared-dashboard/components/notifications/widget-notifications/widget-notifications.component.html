@@ -1,0 +1,61 @@
+<div class="widget-notifications-wrapper">
+  <mat-card class="notifications-card">
+    <div class="layout-blur-middle-bg background-blur"></div>
+    <ng-container [ngSwitch]="(notifications$ | async)?.length > 0">
+      <ng-container *ngSwitchCase="true">
+        <div class="notifications-card-content-more" [class.notifications-opened]="true">
+          <div class="notifications-card-paddings">
+            <mat-list class="mat-list-transparent mat-list-transparent-no-padding">
+              <ng-container *ngFor="let notification of notifications$ | async ; let index = index;">
+                <ng-container [ngTemplateOutlet]="notification_item"
+                  [ngTemplateOutletContext]="{ notification: notification }">
+                </ng-container>
+              </ng-container>
+            </mat-list>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="false">
+        <div class="notifications-card-content no-notifications">
+          <div class="notifications-card-paddings">
+            <div class="notifications">
+              <ng-container [ngTemplateOutlet]="notification_item"
+                [ngTemplateOutletContext]="{ notification: { message: 'No new notifications' } }">
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </mat-card>
+</div>
+
+<ng-template #notification_item let-notification="notification">
+  <div class="notification-item">
+    <span class="notification-icon">
+      <svg class="icon icon-8">
+        <use xlink:href="#icon-n-indicator-16"></use>
+      </svg>
+    </span>
+    <span class="notification-title">{{notification.message | translate}}</span>
+
+    <div class="notification-actions" *ngIf="notification.id">
+      <button mat-raised-button class="mat-button-rounded mat-button-xs" color="muted-white-themed"
+        (click)="onOpenMessage(notification)">
+        <pe-progress-button-content [spinnerStrokeWidth]="2" [spinnerDiameter]="15"
+          [loading]="notification.open$ | async">
+          <span translate>actions.open</span>
+        </pe-progress-button-content>
+      </button>
+      <button mat-raised-button class="close-button mat-button-rounded mat-button-xs close-button" color="muted-white-themed"
+        (document:keydown.esc)="onCloseMessage(notification)" (click)="onCloseMessage(notification)">
+        <pe-progress-button-content [spinnerStrokeWidth]="2" [spinnerDiameter]="15"
+          [loading]="notification.delete$ | async">
+          <svg class="icon icon-8">
+            <use xlink:href="#icon-close-12"></use>
+          </svg>
+        </pe-progress-button-content>
+      </button>
+    </div>
+  </div>
+</ng-template>

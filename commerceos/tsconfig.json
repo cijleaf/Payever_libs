@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "types": [
+      "node",
+      "jasmine",
+      "swiper"
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["apps/standalone/app/*"],
+      "@modules/*": ["modules/*"],
+      "@angular/*": [ "../node_modules/@angular/*" ]
+    }
+  },
+  "compileOnSave": false,
+}

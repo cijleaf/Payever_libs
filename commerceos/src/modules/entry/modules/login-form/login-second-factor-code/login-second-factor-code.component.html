@@ -1,0 +1,67 @@
+<div class="entry-layout commerceos-info-box-wrap" peScrollHide [hideHorizontalScrollbar]="true">
+  <pe-info-box
+    [blurred]="false"
+    [backdropFilterBlur]="true"
+    [withPadding]="true"
+    [withHeader]="false"
+    [withFooter]="false"
+    [transparent]="true"
+    [noBackgroundColor]="true">
+    <ng-container content>
+      <div class="logo-wrapper">
+        <img class="logo-header" [style.height]="'45px'" [src]="'/assets/images/logo_payever.png'">
+      </div>
+      <div class="content" *ngIf="form">
+        <div class="content-code-title">{{'forms.login.twoFA.title' | translate}}</div>
+        <div class="content-code-invalid">
+          <span *ngIf="codeInvalid$ | async">{{'forms.login.twoFA.incorrect_2fa_code' | translate}}</span>
+        </div>
+        <div class="content-code-input">
+          <div *ngFor="let control of formScheme.fieldsets['code']; index as index"
+            class="two-factor-input">
+            <pe-input
+              [autoFocus]="(currentActive$ | async) === index"
+              class="pe-code-input"
+              [addonAppend]="false"
+              [addonPrepend]="false"
+              [nameAttribute]="control.name"
+              [autocompleteAttribute]="false"
+              [formControlRef]="form.get(control.name)"
+              [maxLength]="6"
+              [required]="true"
+              [readonly]="false"
+              [type]="'number'"
+              (valueChange)="onValueChange($event.value, index)"
+            ></pe-input>
+          </div>
+        </div>
+        <div class="content-code-description">
+          {{'forms.login.twoFA.description' | translate:{email: email} }}
+        </div>
+        <div class="content-code-no-code">
+          <span class="content-code-button-wrapper">
+            <pe-progress-button-content
+              [spinnerStrokeWidth]="2"
+              [spinnerDiameter]="15"
+              [loading]="busy$ | async">
+              <span *ngIf="!(busy$ | async)" class="content-code-resend">{{'forms.login.twoFA.no_code' | translate}}</span>
+            </pe-progress-button-content>
+          </span>
+        </div>
+        <button [class.visibility-hidden]="busy$ | async"
+          mat-raised-button
+          class="submit-button mat-button-rounded mat-button-xs"
+          type="button"
+          color="muted-white"
+          (click)="onReSendCode()">
+          <pe-progress-button-content
+            [spinnerStrokeWidth]="2"
+            [spinnerDiameter]="15"
+            [loading]="busySendCode$ | async">
+          {{'forms.login.twoFA.send_code' | translate}}
+          </pe-progress-button-content>
+        </button>
+      </div>
+    </ng-container>
+  </pe-info-box>
+</div>

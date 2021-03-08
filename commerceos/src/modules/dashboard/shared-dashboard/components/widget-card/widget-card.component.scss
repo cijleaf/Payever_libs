@@ -1,0 +1,280 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.mat-card {
+  border-radius: $border-radius-small * 3;
+  padding: 0;
+}
+
+.widget-wrapper {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin-bottom: $margin-adjust * 2;
+}
+
+.widget-card-plus-button {
+  min-width: 0 !important;
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  line-height: 0;
+  font-size: 14px;
+}
+
+.icon.icon-8 {
+  -webkit-transition: -webkit-transform 0.15s ease-in;
+  -ms-transition: -ms-transform 0.15s ease-in;
+  transition: transform 0.15s ease-in;
+}
+
+.icon.icon-8.spin {
+  transform: rotate(45deg);
+}
+
+.widget-card {
+  color: $color-secondary-4;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &-header {
+    @include pe_flexbox;
+    @include pe_align-items(center);
+    @include pe_justify-content(space-between);
+    height: $grid-unit-y * 5;
+
+    @media (max-width: $viewport-breakpoint-ipad - 1) {
+      height: $grid-unit-y * 4;
+    }
+
+    &-container {
+      @include pe_flexbox;
+    }
+
+    &-icon {
+      width: $icon-size-22;
+      height: $icon-size-22;
+      background-size: $icon-size-18;
+      background-repeat: no-repeat;
+      margin-right: $grid-unit-y;
+      background-position: center;
+      margin-top: 0px;
+    }
+
+    &-title {
+      color: $color-secondary-0;
+      font-size: $font-size-base;
+      font-weight: $font-weight-regular;
+    }
+
+    &-more {
+      float: right;
+      color: $color-secondary;
+      margin-left: auto;
+    }
+
+    &-buttons {
+      @include pe_flexbox;
+
+      &>button {
+        min-width: 25px;
+        margin-left: $padding-base-horizontal;
+      }
+
+      .notification-count-wrapper {
+        margin-left: calc(#{$padding-base-horizontal} * 0.6);
+        color: $color-secondary-0;
+        background-color: $color-dashboard-button3 !important;
+        opacity: 0.9;
+        border-color: transparent;
+        background-image: none;
+        font-size: $font-size-micro-2 + 1px;
+        height: 22px;
+        .widget-card-plus-button {
+          background-color: $color-dashboard-button2 !important;
+          // box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+          height: 22px;
+          width: 22px;
+        }
+      }
+
+      .notification-count {
+        // padding:$padding-xs-horizontal;
+        padding: 4px 4px 4px 10px;
+      }
+    }
+
+    .learn-more-link {
+      text-decoration: none;
+      outline: none;
+
+      &-icon {
+        height: $grid-unit-y - 2;
+        width: $grid-unit-y - 2;
+        color: $color-secondary-7;
+        margin-right: $padding-xs-horizontal;
+      }
+    }
+  }
+}
+
+.widget-card-header {
+  .widget-card-header-title {
+    color: $color-secondary;
+    text-transform: uppercase;
+  }
+}
+
+.background-blur {
+  background-color: $color-instead-blur-bg;
+
+  @supports (backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px)) {
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    background-color: $color-primary-8;
+  }
+}
+
+$continue-color: #d09b21;
+
+.widget-card-install-app {
+  text-align: center;
+
+  &-icon {
+    display: inline-block;
+    width: $icon-size-48;
+    height: $icon-size-48;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 2 * $grid-unit-y - 2px 0 $grid-unit-y - 2px;
+  }
+
+  &-title {
+    color: $color-secondary-0;
+    font-size: $font-size-large-1;
+    font-weight: $font-weight-medium;
+  }
+
+  &-text {
+    color: $color-secondary-7;
+    font-size: $font-size-small;
+    font-weight: normal;
+    padding-bottom: 1.5 * $grid-unit-y;
+  }
+
+  .install-app-button,
+  .continue-app-button,
+  .learn-more-button {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 42px;
+    font-size: $font-size-regular-2;
+    font-weight: $font-weight-regular;
+    border-radius: 0 0 $border-radius-small * 3 $border-radius-small * 3;
+
+    background: $color-dashboard-button1;
+    color: $color-secondary;
+
+    pe-progress-button-content {
+      white-space: normal;
+      line-height: 1.5em;
+    }
+  }
+
+  .install-app-button {
+    width: 50%;
+    border-right: 1px solid $color-secondary-2;
+  }
+
+  .install-app-button {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .learn-more-button {
+    width: 50%;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.widget-card-paddings {
+  padding: 0 24px 16px;
+
+  @media (max-width: $viewport-breakpoint-ipad - 1) {
+    padding: 0 16px 16px;
+  }
+
+  .widget-card-content {
+    min-height: $grid-unit-y * 4;
+    position: relative;
+
+    &-body {
+      &-content {
+        @include pe_flexbox;
+      }
+    }
+
+    .spinner-visible {
+      visibility: hidden;
+    }
+
+    .widget-spinner-container {
+      @include full_screen();
+      @include pe_flexbox;
+      @include pe_justify-content(center);
+      @include pe_align-items(center);
+    }
+  }
+}
+
+.open-button {
+  background-color: $color-dashboard-button2 !important;
+}
+
+.widget-card-content-more {
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+  background-color: rgba(17, 17, 17, 0.15);
+  position: relative;
+}
+
+.widget-opened.widget-card-content-more {
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
+}
+
+.widget-notifications-container,
+.widget-extended-content-container {
+  max-height: 1000px;
+  transform: scaleY(1);
+  transition: transform 0.2s ease-in;
+  transition: max-height 0.2s ease-in;
+  transform-origin: top;
+
+  &.hidden-part {
+    max-height: 0;
+    padding: 0;
+    transform: scaleY(0);
+    transition: max-height 0s ease-in;
+  }
+}
+
+.widget-extended-content-container {
+  background-color: $color-primary-4;
+  &-inner {
+    padding-top: $grid-unit-y;
+  }
+}

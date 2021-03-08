@@ -1,0 +1,118 @@
+/* TODO temp, make via ng-kit */
+checkout-root .ui-layout-app {
+    background-color: transparent !important;
+}
+
+checkout-root .ui-layout-app .inner-wrap {
+    background-color: #ffffff !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    top: 0px !important;
+    bottom: 0px !important;
+    right: 0px !important;
+    left: 0px !important;
+}
+checkout-root .loader-container.loader-fixed {
+    position: absolute !important;
+    background-color: transparent !important;
+}
+.pac-container {
+    z-index: 2000 !important;
+}
+body.pe-bootstrap div.dropdown-menu.datepicker-dropdown {
+    z-index: 2000 !important;
+}
+
+.pe-bootstrap .medium-editor-toolbar {
+    visibility: visible;
+}
+
+pe-medium-editor.whole-text *::selection {
+    background-color: transparent;
+}
+
+pe-medium-editor.whole-text *::-moz-selection {
+    background-color: transparent;
+}
+
+platform-header-component mat-toolbar {
+    overflow-y: hidden;
+}
+
+.slide-top {
+    overflow: hidden !important;
+}
+
+.slide-top .mat-dialog-container {
+    overflow: hidden !important;
+}
+
+.slide-top .mat-dialog-content {
+    max-height: initial !important;
+    overflow: visible !important;
+}
+
+/* in-flight clone */
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    pointer-events: none;
+    background-color: black;
+    color: white;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+    left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+    opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    filter: alpha(opacity=20);
+}
+.medium-editor > div {
+  outline: none !important;
+}
+/* TODO: move to ui-kit */
+.top-rounded {
+  border-top-left-radius: 12px!important;
+  border-top-right-radius: 12px!important;
+  overflow: hidden!important;
+}
+
+@keyframes renderFix {
+    from {
+        outline-color: gray;
+    }
+
+    to {
+        outline-color: darkgrey;
+    }
+}
+/* forcing firefox to rerender view */
+.layout-blur-middle-bg {
+    outline: 1px solid gray;
+    animation: 0.1s infinite renderFix;
+}
+/* FIX widget ui bug caused by styles overrides */
+.widgets-dashboard-wrapper > .ng-star-inserted,
+.widgets-dashboard-wrapper > .ng-star-inserted > widget-card {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  position: relative;
+  height: unset;
+  min-height: unset;
+  max-height: unset;
+}

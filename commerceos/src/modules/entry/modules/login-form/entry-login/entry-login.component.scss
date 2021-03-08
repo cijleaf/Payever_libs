@@ -1,0 +1,129 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.login-wrapper {
+  // margin-top: $margin-adjust*17.5;
+  @media (max-width: 719px) {
+    // max-width: 326px;
+    // margin: 24px auto 0 auto;
+    // padding: 0 4px;
+
+    ::ng-deep .form-field {
+      height: 42px !important;
+      min-height: unset !important;
+    }
+  }
+
+  margin: 0 auto 0 auto;
+  padding: 0 16px;
+  padding-top: 24px;
+
+  .without-creds.mat-button-block.mat-raised-button {
+    border-radius: 8px;
+  }
+
+  .pe-recaptcha-wrap-wrap {
+    background: #222; // Same as we have for dark recaptcha theme
+    opacity: 0.7;
+    text-align: center;
+
+    .pe-recaptcha-wrap {
+      margin-bottom: -4px;
+      display: inline-block;
+
+      overflow: hidden;
+      position: relative;
+      width: 298px;
+      height: 72px;
+      pe-recaptcha {
+        top: -2px;
+        left: -2px;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  .password-forgot-wrap {
+    text-align: center;
+    padding-top: 8px;
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-white-grey-8;
+
+      text-decoration: underline;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -$grid-unit-y * 2;
+  padding: $grid-unit-y 0;
+
+  .login-header-item {
+    line-height: $grid-unit-y * 3;
+  }
+}
+
+$auth-alert-color: #f7d7da;
+$auth-alert-color-dark: $auth-alert-color; // TODO - #111;
+$auth-alert-color-font: #855459;
+
+.auth-alert-wrapper {
+  position: relative;
+  margin-top: 21px;
+}
+/*
+.auth-alert {
+  padding: $grid-unit-y $grid-unit-x;
+  margin-bottom: $grid-unit-y * 2;
+  border: 1px solid $auth-alert-color-dark;
+  border-radius: $border-radius-base * 2;
+
+  text-align: center;
+
+  color: $auth-alert-color-font;
+  background-color: $auth-alert-color;
+}
+
+.auth-alert::before {
+  position: absolute;
+  top: -$grid-unit-y / 2;
+  left: 50%;
+  margin-left: -$grid-unit-x / 2;
+  width: $grid-unit-y;
+  height: $grid-unit-y;
+  border: 1px solid $auth-alert-color-dark;
+  border-bottom: 0;
+  border-right: 0;
+  background: $auth-alert-color;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: '';
+}*/
+
+::ng-deep.login-wrapper .form-table pe-form-fieldset .form-fieldset .row {
+  .form-field {
+    background-color: rgba(0, 0, 0, 0.2)!important;
+  }
+}
+
+::ng-deep.login-wrapper .form-fieldset {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+/*
+.pe-bootstrap .login-wrapper .form-table .pe-form-fieldset .form-fieldset {
+   background-color: rgba(30, 31, 34, 0.8);
+}*/
+
+.pe-bootstrap .login-wrapper .form-table .form-fieldset .row > [class*=col] {
+  border-top: 0 solid;
+}

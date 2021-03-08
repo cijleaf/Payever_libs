@@ -1,0 +1,31 @@
+<div class="background"></div>
+<div class="entry-layout commerceos-info-box-wrap" peScrollHide [hideHorizontalScrollbar]="true">
+  <pe-info-box [blurred]="true"
+               [backdropFilterBlur]="true"
+               [fixed]="!(isMobile$ | async)"
+               [withPadding]="true"
+               [withHeader]="false"
+               [withFooter]="false"
+               [noBackgroundColor]="true">
+    <ng-container content>
+<div>
+  <active-business
+    [logo]="logo | mediaUrl:'images'"
+    [name]="name"
+    [email]="email"
+    [city]="city"
+    [firstName]="firstName"
+    [lastName]="lastName">
+  </active-business>
+  <div>
+    <entry-login [withoutCreds]="true" (onSuccessLogin)="onSuccessLogin()">
+      <button mat-button
+        class="mat-button-link mat-button-sm text-center forgot-password-link"
+        (click)="onBack()"
+      >Back to Search</button>
+    </entry-login>
+  </div>
+</div>
+</ng-container>
+</pe-info-box>
+</div>

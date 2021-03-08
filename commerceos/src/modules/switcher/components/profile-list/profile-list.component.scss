@@ -1,0 +1,14 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.profile-list-background {
+  background-size: cover;
+  height: 100%;
+  margin-left: -24px;
+  width: calc(100% + 48px);
+
+  ::ng-deep {
+    p {
+      color: $color-white-pe !important; // To ignore theme should be always white
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+@import "~@pe/ui-kit/scss/pe_variables";
+
+.content {
+  @include pe_flexbox();
+  @include pe_flex-direction(column);
+  @include pe_align-items(center);
+  text-align: center;
+  padding: $padding-base-vertical * 9 $padding-base-horizontal * 2 $padding-base-vertical * 6 $padding-base-horizontal * 2;
+
+  .content-code-title {
+    font-size: 18px;
+  }
+
+  .content-code-invalid {
+    height: 12px;
+    color: $color-red;
+  }
+
+  .content-code-input {
+    padding-top: $padding-base-vertical*2;
+  }
+
+  .two-factor-input {
+    padding: 3px;
+    display: inline-block;
+    &:nth-child(3n) {
+      padding-right: $padding-base-horizontal/2;
+    }
+    &:nth-child(3n+1) {
+      padding-left: $padding-base-horizontal/2;
+    }
+
+    ::ng-deep { // TODO avoid deep
+      .mat-form-field-infix {
+        width: auto;
+      }
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  .content-code-no-code {
+    margin-top: $padding-base-vertical*2;
+    margin-bottom: $padding-base-vertical;
+    .content-code-button-wrapper {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content-code-resend {
+      font-size: 12px;
+    }
+  }
+
+  .submit-button {
+    padding: 0 $padding-base-horizontal*2;
+    max-width: 180px;
+    overflow: hidden;
+  }
+}
+
+.entry-layout {
+  .logo-wrapper {
+    display: flex;
+    color: $color-white-pe;
+    justify-content: center;
+    height: 28px;
+  }
+  ::ng-deep .mat-card-transparent {
+    -webkit-box-shadow: none !important;;
+    -moz-box-shadow: none !important;;
+    box-shadow: none !important;
+  }
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}

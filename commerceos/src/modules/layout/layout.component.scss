@@ -1,0 +1,262 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.entry-layout {
+  button.mat-button-link.mat-button-no-padding {
+    margin: auto;
+  }
+
+  .mat-button-link {
+    color: $color-white-pe;
+  }
+
+  pe-locales-switcher .mat-button {
+    background-color: #444;
+    color: $color-white;
+    .mat-button-wrapper .icon {
+      margin-left: -10px;
+    }
+  }
+
+  ::ng-deep.mat-card-transparent {
+    background-color: transparent;
+    box-shadow: none !important;
+    overflow: visible;
+  }
+
+  ::ng-deep.logo-wrapper {
+    margin: 28px 0;
+    display: flex;
+    color: $color-white-pe;
+    justify-content: center;
+    height: 28px;
+  }
+
+  &-bottom {
+    min-width: $pe_hgrid_gutter * 12.5;
+    display: flex;
+    justify-content: space-between;
+    margin-top: $margin-adjust * 6.5;
+    line-height: $pe_vgrid_height * 3;
+
+    @media (max-width: $viewport-breakpoint-sm-1 - 1) {
+      min-width: 100%;
+    }
+
+    .entry-text {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      button {
+        color: $color-white !important;
+      }
+
+      span {
+        font-size: $font-size-base;
+        margin-right: $padding-xs-horizontal;
+      }
+
+      button.mat-button-link.mat-button-no-padding {
+        margin: auto 0;
+        font-size: 13px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &-social {
+    display: flex;
+    &-label {
+      color: $color-secondary-0;
+      padding-right: $margin-adjust*2;
+    }
+  }
+
+  .entry-layout-terms {
+    position: relative;
+    bottom: 80px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 22px;
+    padding: 0 15px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: normal;
+    @media (min-width: $viewport-breakpoint-sm-2) {
+      position: fixed;
+      bottom: 15px;
+      max-width: unset;
+      width: 100%;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+    @media (min-width: $viewport-breakpoint-sm-2) {
+      bottom: 14px!important;
+    }
+    @media (max-height: $viewport-breakpoint-sm-3 - 140) {
+      bottom: 40px;
+    }
+    @media (max-height: $viewport-breakpoint-sm-3 - 220) {
+      bottom: 35px;
+    }
+    @media (max-height: $viewport-breakpoint-sm-2 - 60) {
+      bottom: 25px;
+    }
+    color: $color-secondary-6;
+    a {
+      cursor: pointer;
+      font-size: 13px;
+      color: $color-secondary-0;
+      font-weight: 500;
+    }
+
+  }
+}
+
+.background {
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  @include payever_animation(initOverlay, $animation-duration-complex, both);
+
+  .payever-logo {
+    position: absolute;
+    top: $grid-unit-y;
+    left: $grid-unit-x;
+  }
+}
+.lang-switcher {
+  position: fixed;
+  bottom: $grid-unit-y;
+  right: $grid-unit-x;
+}
+
+@keyframes initOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: $viewport-breakpoint-sm-2) {
+  .entry-layout {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    pe-info-box {
+      width: 100%;
+      display: block;
+      position: relative;
+      margin: auto;
+    }
+    .info-box {
+      .mat-card.mat-card-transparent {
+        width: 100vw;
+      }
+    }
+  }
+  .entry-layout-social {
+    margin-left: $grid-unit-x;
+    font-size: $font-size-base;
+    &::before {
+      position: relative;
+      content: '';
+      height: 15px;
+      width: 1px;
+      background-color: $color-secondary-0;
+      bottom: -10px;
+      left: -7px;
+    }
+  }
+
+  .lang-switcher {
+    position: relative;
+    right: 0;
+    .locales-switcher-button {
+      height: $grid-unit-y * 2;
+    }
+  }
+}
+
+@media (max-width: $viewport-breakpoint-xs-1 + 50) {
+  .lang-switcher {
+    .locales-switcher-button {
+      min-width: 52px;
+    }
+  }
+}
+
+:host::ng-deep.info-box {
+  @media (max-width: 719px) {
+    .form-table, entry-error {
+      // transform: scale(0.75) !important;
+      // width: 121.9% !important;
+      // margin-left: -37px !important;
+
+      // width: calc(100% - #{$grid-unit-y});
+      // margin-left: ($grid-unit-y/2);
+    }
+  }
+
+  .form-fieldset-field-padding-24 {
+    min-height: 56px !important;
+  }
+
+  .mat-button-block {
+    height: 55px !important;
+  }
+}
+
+:host::ng-deep.info-box {
+  .mat-card-transparent {
+    @media (max-width: 400px) {
+      //width: 100% !important;
+    }
+  }
+
+  .mat-card-content-no-background-color {
+    @media (max-width: $viewport-breakpoint-xs-2) {
+      padding: 24px 0 !important;
+    }
+  }
+}
+
+// This is for Firefox
+@supports not (backdrop-filter: blur(20px)) {
+
+  ::ng-deep {
+    .pe-bootstrap .commerceos-info-box-wrap .mat-card-transparent .mat-card-content-padding-sm {
+      background-color: #1f2022;
+    }
+
+    .pe-bootstrap .commerceos-info-box-wrap .form-table .pe-form-fieldset.transparent .form-fieldset .row > [class*=col] {
+      background-color: #2d2d2d;
+    }
+
+    .pe-bootstrap .commerceos-info-box-wrap .mat-expansion-panel-dark-extended .mat-expansion-panel-header {
+      background-color: #3f3f41 !important;
+    }
+
+    .pe-bootstrap .commerceos-info-box-wrap .mat-card-transparent .mat-card-content .mat-button-block {
+      background-color: #3f3f41 !important;;
+    }
+  }
+
+}
+

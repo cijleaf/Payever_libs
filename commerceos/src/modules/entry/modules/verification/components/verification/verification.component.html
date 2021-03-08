@@ -1,0 +1,52 @@
+<div class="commerceos-verification" [ngSwitch]="mode$ | async">
+
+    <ng-container *ngSwitchCase="ModeEnum.register">
+        <div class="verification-header">
+            <div class="verification-header-item">
+                {{((isMobile$ | async) ? 'registration.container.heading_mobile' : 'registration.container.heading') | translate}}
+            </div>
+        </div>
+
+        <entry-error [errorText]="errorText"></entry-error>
+
+        <entry-create-user-form class="personal-business"
+                                [errors]="errorBag$ | async"
+                                [email]="email"
+                                [prefilled]="false"
+                                [isLoading]="isLoading"
+                                (submitClicked)="onFormDataReceive($event)"
+                                (formDataEmitter)="onFormDataReceive($event, false)"
+        ></entry-create-user-form>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="ModeEnum.login">
+        <div class="verification-header">
+            <div class="verification-header-item verification-header-item_login">
+                {{'forms.business_verification.please_login' | translate}}<br>
+                <strong>{{email}}</strong>
+            </div>
+        </div>
+
+        <entry-error [errorText]="errorText"></entry-error>
+
+        <login-layout [email]="email"></login-layout>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="ModeEnum.loading">
+        <entry-error [errorText]="errorText"></entry-error>
+        <br>
+        <div class="verification-header">
+            <div class="verification-header-grow-item"></div>
+            <div>
+                <pe-layout-spinner></pe-layout-spinner>
+            </div>
+            <div class="verification-header-grow-item"></div>
+        </div>
+        <br><br>
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      <entry-error [errorText]="errorText"></entry-error>
+    </ng-container>
+
+</div>

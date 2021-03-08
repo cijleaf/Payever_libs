@@ -1,0 +1,6 @@
+<base-dashboard [backgroundImage]="backgroundImage"
+                [loaded]="true"
+                (dockerItemsChange)="onDockerItemsChange($event)"
+                (profileButtonClicked)="navigateToSwitcher()">
+  <router-outlet></router-outlet>
+</base-dashboard>

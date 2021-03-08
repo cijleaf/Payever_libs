@@ -1,0 +1,57 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+
+$auth-alert-color: #ff644e;
+$auth-alert-color-dark: $auth-alert-color; // TODO - #111;
+$auth-alert-color-font: $color-white-pe;
+
+:host {
+  display: block;
+}
+
+.auth-alert-wrapper {
+  position: relative;
+  margin-top: 0;
+}
+
+.auth-alert {
+  padding: $grid-unit-y/2 $grid-unit-x;
+  margin-bottom: $grid-unit-y / 2;
+  border: 1px solid $auth-alert-color-dark;
+  border-radius: $border-radius-base * 2;
+
+  text-align: left;
+
+  color: $auth-alert-color-font;
+  font-weight: normal;
+  background-color: $auth-alert-color;
+
+  .icon-14 {
+    margin-top: -4px;
+  }
+
+  @media (min-width: 600px) {
+    padding-left: 2*$grid-unit-x;
+    padding-right: 2*$grid-unit-x;
+
+    .icon-14 {
+      margin-top: -2px;
+    }
+  }
+}
+/*
+.auth-alert::before {
+  position: absolute;
+  top: -$grid-unit-y / 2;
+  left: 50%;
+  margin-left: -$grid-unit-x / 2;
+  width: $grid-unit-y;
+  height: $grid-unit-y;
+  border: 1px solid $auth-alert-color-dark;
+  border-bottom: 0;
+  border-right: 0;
+  background: $auth-alert-color;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: '';
+}*/

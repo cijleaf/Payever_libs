@@ -1,0 +1,141 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+.mat-card {
+  border-radius: 15px;
+  padding: 0;
+}
+.notifications-wrapper {
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding-top: $padding-small-vertical * 3;
+  padding-right: $padding-small-vertical * 4;
+  padding-left: $padding-small-vertical * 4;
+}
+.notifications-card {
+  color: $color-secondary-4;
+  background-color: $color-primary-4;
+  .mat-list {
+    .mat-list-item-col {
+      display: flex;
+      white-space: normal;
+      align-items: center;
+    }
+  }
+}
+.notifications-card-paddings {
+  padding: 0 $grid-unit-x * 2;
+  width: 100%;
+  @media (max-width: $viewport-breakpoint-ipad - 1) {
+    padding: 0 $grid-unit-x;
+  }
+}
+.notifications-card-content {
+  background-color: $color-primary-5;
+  @include pe_flexbox;
+  min-height: $grid-unit-y * 4;
+
+  .mat-button-xs {
+    min-width: 0;
+    padding: 0 12px;
+  }
+
+  .close-button {
+    padding: 0 6px;
+  }
+}
+.notifications-card-content-more {
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+  background-color: $color-primary-5;
+
+  .mat-button-xs {
+    min-width: 0;
+    padding: 0 12px;
+  }
+
+  .close-button {
+    padding: 0 6px;
+  }
+}
+.notifications-card-header {
+  @include pe_flexbox;
+  @include pe_align-items(center);
+  height: $grid-unit-y * 5;
+  padding: 0 $grid-unit-x * 2;
+  @media (max-width: $viewport-breakpoint-ipad - 1) {
+    height: $grid-unit-y * 4;
+    padding: 0 $grid-unit-x;
+  }
+}
+.notifications-card-header-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+  margin-right: 10px;
+}
+.notifications-card-header-title {
+  color: $color-secondary-0;
+  font-size: $font-size-base;
+  font-weight: 300;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.notifications-card-header-counter {
+  float: right;
+  font-size: $font-size-micro-2;
+  font-weight: 300;
+  height: $grid-unit-y * 2;
+  padding: 0 $grid-unit-x;
+  margin-left: auto;
+  color: $color-secondary-0;
+  background-color: $color-primary-4;
+  border-color: transparent;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+}
+.notifications-card-header-more {
+  float: right;
+  color: $color-secondary;
+  height: $grid-unit-y * 2;
+  margin-left: 10px;
+  min-width: 35px;
+}
+.notifications-opened.notifications-card-content-more {
+  max-height: 395px;
+  transition: max-height 0.25s ease-in;
+}
+.notifications-title {
+  margin-left: $padding-small-horizontal;
+}
+.notification-item {
+  .text-right {
+    @include pe_flexbox;
+    pe-progress-button-content {
+      white-space: normal;
+      line-height: 0.5em;
+    }
+  }
+}
+
+.mat-list-item-no-padding-left .mat-list-item-flex {
+  flex-basis: 1px;
+  flex-grow: 1;
+}
+
+.background-blur {
+  background-color: $color-primary-2;
+  border-radius: 15px;
+}
+
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  .background-blur {
+    background-color: $color-primary-4;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}

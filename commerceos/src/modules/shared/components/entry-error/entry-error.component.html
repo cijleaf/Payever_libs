@@ -1,0 +1,6 @@
+<div class="auth-alert-wrapper fade in" *ngIf="errorText">
+  <div class="auth-alert">
+    <svg class="icon icon-14"><use [attr.xlink:href]="'#icon-b-warning-18'"></use></svg>
+    <span [innerHTML]="errorText || '&nbsp;'"></span>
+  </div>
+</div>

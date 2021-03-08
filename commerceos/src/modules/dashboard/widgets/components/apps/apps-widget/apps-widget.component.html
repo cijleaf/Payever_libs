@@ -1,0 +1,20 @@
+<pe-widget *ngIf="widget" [widget]="widget" [theme]="theme$ | async"></pe-widget>
+<!--TODO: Remove after approving WIDGET-1, COSF-343-->
+<!--<widget-card-->
+<!--  [title]="isPersonalMode ? ('widgets.apps.title-personal' | translate) : ('widgets.apps.title-business' | translate)"-->
+<!--  [iconSrc]="iconUrl | iconsPngUrl" [hasExtendedContent]="(extendedApps$ | async)?.length > 0" [editButton]="true"-->
+<!--  [showInstallAppButton]="false" [installIconSrc]="installIconUrl | iconsPngUrl" (onClick)="openEditBox()">-->
+<!--  <business-applications class="business-dashboard" top-->
+<!--                         [itemsPerRow]="itemsPerRow" [isCompactItems]="true"-->
+<!--                         [hideUninstalled]="true"-->
+<!--                         [apps]="visibleApps$ | async">-->
+<!--  </business-applications>-->
+<!--  <div extended-content>-->
+<!--    <business-applications class="business-dashboard" top-->
+<!--                           [itemsPerRow]="itemsPerRow" [isCompactItems]="true"-->
+<!--                           [isWidgetExtendedSection]="true"-->
+<!--                           [hideUninstalled]="true"-->
+<!--                           [apps]="extendedApps$ | async">-->
+<!--    </business-applications>-->
+<!--  </div>-->
+<!--</widget-card>-->

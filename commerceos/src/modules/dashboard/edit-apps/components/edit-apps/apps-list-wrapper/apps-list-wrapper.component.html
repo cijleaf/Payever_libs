@@ -1,0 +1,17 @@
+<ng-container *ngIf="dockerItems$ | async">
+  <apps-list
+    [apps]="installedApps$ | async"
+    [installText]="'edit_apps.actions.uninstall' | translate"
+    (onAppToggle)="uninstall($event)">
+  </apps-list>
+  <div class="not-installed-container">
+    <div *ngIf="(uninstalledApps$ | async)?.length"
+    class="not-installed-title"
+    [class.bordered]="true">{{ 'edit_apps.not_installed' | translate }}</div>
+    <apps-list
+    [apps]="uninstalledApps$ | async"
+    [uninstallText]="'edit_apps.actions.install' | translate"
+    (onAppToggle)="install($event)">
+  </apps-list>
+</div>
+</ng-container>

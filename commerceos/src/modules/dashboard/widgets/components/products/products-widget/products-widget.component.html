@@ -1,0 +1,53 @@
+<pe-widget *ngIf="widget" [widget]="widget" [theme]="theme$ | async"></pe-widget>
+<!--TODO: Remove after approving WIDGET-1, COSF-343-->
+<!--<widget-card-->
+<!--  [appCode]="appName"-->
+<!--  [title]="'widgets.products.title' | translate"-->
+<!--  [iconSrc]="iconUrl | iconsPngUrl"-->
+<!--  [installIconSrc]="installIconUrl | iconsPngUrl"-->
+<!--  [learMoreUrl]="widget?.helpUrl"-->
+<!--  [showSpinner]="showSpinner$ | async"-->
+<!--  [showButtonSpinner]="showButtonSpinner$ | async"-->
+<!--  [installAppButtonText]="'widgets.products.actions.add-new' | translate"-->
+<!--  (onClick)="onOpenButtonClick()"-->
+<!--&gt;-->
+<!--  <ng-container *ngIf="(products$ | async)?.length">-->
+<!--    &lt;!&ndash;-->
+<!--    <div class="products-widget-flex">-->
+<!--      <div class="products-widget-title" [innerHTML]="popularProductsTitle"></div>-->
+<!--      <mat-divider [vertical]="true"></mat-divider>-->
+<!--    </div>-->
+<!--    &ndash;&gt;-->
+<!--    <ng-container *ngFor="let product of products$ | async">-->
+<!--      <product-item-->
+<!--        class="list-product"-->
+<!--        [imageSrc]="product.imageSrc"-->
+<!--        [title]="product.title"-->
+<!--        [price]="product.price"-->
+<!--        [currency]="product.currency || 'EUR'"-->
+<!--        [quantity]="product.quantity"-->
+<!--        [lastBuy]="product.lastBuy"-->
+<!--        [loading]="product.loading$ | async"-->
+<!--        (click)="onOpenProduct(product)">-->
+<!--      </product-item>-->
+<!--    </ng-container>-->
+<!--  </ng-container>-->
+
+<!--  &lt;!&ndash;-->
+<!--  <ng-container more>-->
+<!--    <div class="products-widget-flex more">-->
+<!--      <ng-container *ngFor="let product of productsMore$ | async">-->
+<!--        <product-item-->
+<!--          [small]="true"-->
+<!--          [imageSrc]="product.imageSrc"-->
+<!--          [title]="product.title"-->
+<!--          [quantity]="product.quantity"-->
+<!--          [lastBuy]="product.lastBuy"-->
+<!--          [loading]="product.loading$ | async"-->
+<!--          (click)="onOpenProduct(product)">-->
+<!--        </product-item>-->
+<!--      </ng-container>-->
+<!--    </div>-->
+<!--  </ng-container>-->
+<!--&ndash;&gt;-->
+<!--</widget-card>-->

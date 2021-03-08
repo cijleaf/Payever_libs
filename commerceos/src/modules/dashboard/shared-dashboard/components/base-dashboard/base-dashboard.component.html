@@ -1,0 +1,16 @@
+<div class="dashboard-content-wrapper"
+  [class.dashboard-closing]="!(showContent$ | async)">
+  <div #dashboardElement peScrollHide
+       [hideHorizontalScrollbar]="true"
+       class="dashboard-content dashboard-scroll-wrapper"
+       (scroll)="onDashboardScroll($event)">
+    <div class="dashboard-content-center" [class.dashboard-content-desktop]="!(isMobile$ | async)">
+
+      <div class="demo-greeting">
+        <b>{{ greeting1 }}</b> {{ greeting2 }}
+      </div>
+
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

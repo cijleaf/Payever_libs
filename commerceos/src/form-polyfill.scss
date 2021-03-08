@@ -1,0 +1,18 @@
+// @import "~@pe/ui-kit/scss/pe_style.scss";
+
+// TODO: move to ui-kit
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+  color: rgba(255, 255, 255, 0.75);
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.75);
+}

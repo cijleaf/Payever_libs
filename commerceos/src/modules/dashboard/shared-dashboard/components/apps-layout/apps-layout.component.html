@@ -1,0 +1,8 @@
+<div class="apps-dashboard-wrapper" [class.fade]="!loaded">
+  <app-card [profileButtonImage]="profileButtonImage"
+            [profileButtonTitle]="profileButtonTitle"
+            [withEditButton]="withEditButton"
+  >
+    <business-applications class="business-dashboard" top [apps]="apps" (appSwitched)="close()"></business-applications>
+  </app-card>
+</div>

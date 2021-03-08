@@ -1,0 +1,50 @@
+@import "~@pe/ui-kit/scss/pe_variables";
+@import "~@pe/ui-kit/scss/mixins/pe_mixins";
+
+:host ::ng-deep {
+  .info-box {
+    @include pe_flexbox();
+    width: 100%;
+    padding: 0 !important;
+  }
+}
+
+.edit-apps-container {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  .edit-apps {
+    @include pe_flexbox();
+    @include pe_align-items(center);
+    @include pe_justify-content(center);
+    min-height: 100%;
+    padding: 44px 0 22px;
+
+    @media (max-width: 719px) {
+      padding: 75px 0 22px;
+    }
+
+    &-bg {
+      z-index: 0;
+    }
+
+    .buttons-wrapper {
+      text-align: center;
+      background: $color-primary-4;
+
+      .mat-button-toggle-group-transparent {
+        margin: 16px 0;
+        // fix for iOS
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        border-radius: 12px;
+      }
+    }
+  }
+
+  .mat-card-header .mat-toolbar-text {
+    font-weight: 500;
+  }
+}

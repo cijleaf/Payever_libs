@@ -1,0 +1,18 @@
+<div class="logo-wrapper">
+  <span class="logo-header" [style.height]="'inherit'">
+    <svg class="icon" [style.width.px]="entryLogo.width" [style.height.px]="entryLogo.height"><use [attr.xlink:href]="entryLogo.href"></use></svg>
+  </span>
+</div>
+<div class="logo-container" [class.no-margin]="noMargin">
+    <img [ngStyle]="{'width': size + 'px', 'height': size + 'px'}" *ngIf="logo" class="logo img-circle" [src]="logo">
+    <div [ngStyle]="{'width': size + 'px', 'height': size + 'px'}" *ngIf="!logo" class="logo logo-placeholder img-circle">
+        <h2>{{ name | abbreviation }}</h2>
+    </div>
+
+    <!--<pe-profile-card-spinner *ngIf="showLoader"></pe-profile-card-spinner>-->
+    <div class="business-info">
+        <span class="business-title">{{name}}</span>
+        <span class="business-industry">{{city}}{{email ? (', ' + email) : '' }}</span>
+        <!-- <span class="business-owner" *ngIf="firstName && lastName">{{firstName}} {{lastName}}'s {{ 'active_business.business' | translate }}</span> -->
+    </div>
+</div>

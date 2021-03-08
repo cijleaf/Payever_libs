@@ -1,0 +1,29 @@
+<form novalidate
+      class="form-table form-table-no-margin form-table-border-radius-md"
+      [formGroup]="form"
+      *ngIf="form">
+
+  <pe-form-fieldset class="transparent pe-form-fieldset"
+                    [isSubmitted]="isSubmitted"
+                    [fields]="formScheme.fieldsets['login']"
+                    [formGroup]="form"
+                    [translationScope]="formTranslationsScope"
+                    [errors]="errors$ | async"
+                    [formStyle]="'default'"
+  ></pe-form-fieldset>
+  <div *ngIf="this.form.get('recaptchaToken')?.enabled" class="pe-recaptcha-wrap-wrap">
+    <div class="pe-recaptcha-wrap">
+      <pe-recaptcha [size]="'normal'"
+                    [theme]="'dark'"
+                    (verified)="onReCaptchaVerified($event)"></pe-recaptcha>
+    </div>
+  </div>
+
+  <button mat-raised-button
+          class="mat-button-block"
+          type="submit"
+          (click)="onSubmit()">
+    <pe-progress-button-content class="mat-progress-spinner-light" [loading]="isLoading" >{{ submitTextKey | translate }}</pe-progress-button-content>
+  </button>
+
+</form>
